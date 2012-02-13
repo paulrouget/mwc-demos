@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<body onload="startProcessingAudio()">
+
+    <audio id="grappes" autoplay src="media/track.ogg" preload="auto"></audio>
+    <div><canvas data-processing-sources="audio_scripts/anim.pde" id="audiocube"></canvas></div>
+
+    <script src="audio_scripts/processing.js"></script>
+    <script src="audio_scripts/beatdetektor.js"></script>
+    <script src="audio_scripts/dsp.js"></script>
+    <script src="audio_scripts/main.js"></script>
+
+    <style>
+        div {
+            width: 128px;
+            margin: auto;
+        }
+    </style>
+
+
+</body>
