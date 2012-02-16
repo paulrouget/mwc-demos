@@ -1174,6 +1174,7 @@ footer, header, hgroup, menu, nav, section {
         footer {display:none;}
 	}
 
+  /*
 	@media screen and (max-width: 800px) and (orientation: portrait) {
         #portrait {display:block;height:300px;width:300px;position:absolute;top:55%; left:50%; margin:-150px 0 0 -150px;}
         #parchment {display:none;}
@@ -1190,6 +1191,7 @@ footer, header, hgroup, menu, nav, section {
         
         #logo {height:42px;width:229px;position:absolute;top:10%;left:50%;margin-left:-114px;z-index:3;background-size:422px;}
     }
+    */
 
 /* Tablet mode */
 
