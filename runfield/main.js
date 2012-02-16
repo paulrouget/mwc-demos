@@ -451,10 +451,10 @@ window.onload = function() {
       startJump(ev);
       down = false;
     };
-    //c.onmousedown = c.ontouchstart = startJump;
-    //window.onmouseup = window.ontouchend = endJump;
-    //c.addEventListener('MozTouchStart', startJump, false);
-    //c.addEventListener('MozTouchRelease', endJump, false);
+    c.onmousedown = c.ontouchstart = startJump;
+    window.onmouseup = window.ontouchend = endJump;
+    c.addEventListener('MozTouchStart', startJump, false);
+    c.addEventListener('MozTouchRelease', endJump, false);
     window.onkeydown = function(ev) {
       if (ev.which == 32) {
         startJump(ev);
