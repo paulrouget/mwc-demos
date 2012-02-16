@@ -33,8 +33,6 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
             this.itemGrid = null;
             this.currentCursor = null;
             this.mouse = { x: 0, y: 0 };
-            this.zoningQueue = [];
-            this.previousClickPosition = {};
     
             this.selectedX = 0;
             this.selectedY = 0;
@@ -327,20 +325,10 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
         },
     
         setSpriteScale: function(scale) {
-            var self = this;
-            
             if(this.renderer.upscaledRendering) {
                 this.sprites = this.spritesets[0];
             } else {
                 this.sprites = this.spritesets[scale - 1];
-                
-                _.each(this.entities, function(entity) {
-                    entity.sprite = null;
-                    entity.setSprite(self.sprites[entity.getSpriteName()]);
-                });
-                this.initHurtSprites();
-                this.initShadows();
-                this.initCursors();
             }
         },
     
@@ -404,12 +392,23 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
         },
 
         addEntity: function(entity) {
+            var self = this;
+            
             if(this.entities[entity.id] === undefined) {
                 this.entities[entity.id] = entity;
                 this.registerEntityPosition(entity);
-                if(!(entity instanceof Item && entity.wasDropped)) {
+                
+                if(!(entity instanceof Item && entity.wasDropped)
+                && !(this.renderer.mobile || this.renderer.tablet)) {
                     entity.fadeIn(this.currentTime);
                 }
+                
+                entity.onDirty(function(e) {
+                    if(self.camera.isVisible(e)) {
+                        e.dirtyRect = self.renderer.getEntityBoundingRect(e);
+                        self.checkOtherDirtyRects(e.dirtyRect, e, e.gridX, e.gridY);
+                    }
+                });
             }
             else {
                 log.error("This entity already exists : " + entity.id + " ("+entity.kind+")");
@@ -459,7 +458,7 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
             for(var i=0; i < this.map.height; i += 1) {
                 this.entityGrid[i] = [];
                 for(var j=0; j < this.map.width; j += 1) {
-                    this.entityGrid[i][j] = {};
+                    this.entityGrid[i][j] = null;
                 }
             }
             log.info("Initialized the entity grid.");
@@ -497,7 +496,12 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
             this.animatedTiles = [];
             this.forEachVisibleTile(function (id, index) {
                 if(m.isAnimatedTile(id)) {
-                    self.animatedTiles.push(new AnimatedTile(id, m.getTileAnimationLength(id), m.getTileAnimationDelay(id), index));
+                    var tile = new AnimatedTile(id, m.getTileAnimationLength(id), m.getTileAnimationDelay(id), index),
+                        pos = self.map.tileIndexToGridPosition(tile.index);
+                    
+                    tile.x = pos.x;
+                    tile.y = pos.y;
+                    self.animatedTiles.push(tile);
                 }
             });
             //log.info("Initialized animated tiles.");
@@ -515,10 +519,8 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
             }
         },
     
-        removeFromEntityGrid: function(entity, x, y) {
-            if(this.entityGrid[y][x][entity.id]) {
-                delete this.entityGrid[y][x][entity.id];
-            }
+        removeFromEntityGrid: function(x, y) {
+            this.entityGrid[y][x] = null;
         },
     
         removeFromPathingGrid: function(x, y) {
@@ -534,12 +536,12 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
          */
         registerEntityDualPosition: function(entity) {
             if(entity) {
-                this.entityGrid[entity.gridY][entity.gridX][entity.id] = entity;
+                this.entityGrid[entity.gridY][entity.gridX] = entity;
             
                 this.addToRenderingGrid(entity, entity.gridX, entity.gridY);
             
                 if(entity.nextGridX >= 0 && entity.nextGridY >= 0) {
-                    this.entityGrid[entity.nextGridY][entity.nextGridX][entity.id] = entity;
+                    this.entityGrid[entity.nextGridY][entity.nextGridX] = entity;
                     if(!(entity instanceof Player)) {
                         this.pathingGrid[entity.nextGridY][entity.nextGridX] = 1;
                     }
@@ -554,13 +556,13 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
          */
         unregisterEntityPosition: function(entity) {
             if(entity) {
-                this.removeFromEntityGrid(entity, entity.gridX, entity.gridY);
+                this.removeFromEntityGrid(entity.gridX, entity.gridY);
                 this.removeFromPathingGrid(entity.gridX, entity.gridY);
             
                 this.removeFromRenderingGrid(entity, entity.gridX, entity.gridY);
             
                 if(entity.nextGridX >= 0 && entity.nextGridY >= 0) {
-                    this.removeFromEntityGrid(entity, entity.nextGridX, entity.nextGridY);
+                    this.removeFromEntityGrid(entity.nextGridX, entity.nextGridY);
                     this.removeFromPathingGrid(entity.nextGridX, entity.nextGridY);
                 }
             }
@@ -572,7 +574,7 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
         
             if(entity) {
                 if(entity instanceof Character || entity instanceof Chest) {
-                    this.entityGrid[y][x][entity.id] = entity;
+                    this.entityGrid[y][x] = entity;
                     if(!(entity instanceof Player)) {
                         this.pathingGrid[y][x] = 1;
                     }
@@ -649,21 +651,21 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
     
         tick: function() {
             this.currentTime = new Date().getTime();
-            
+
             if(this.started) {
                 this.updateCursorLogic();
                 this.updater.update();
                 this.renderer.renderFrame();
             }
-            
+
             if(!this.isStopped) {
                 requestAnimFrame(this.tick.bind(this));
             }
         },
-    
+
         start: function() {
             this.tick();
-            this.hasNeverStarted = false; 
+            this.hasNeverStarted = false;
             log.info("Game loop started.");
         },
 
@@ -741,6 +743,7 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                 self.audioManager.updateMusic();
             
                 self.addEntity(self.player);
+                self.player.dirtyRect = self.renderer.getEntityBoundingRect(self.player);
 
                 setTimeout(function() {
                     self.tryUnlockingAchievement("STILL_ALIVE");
@@ -773,6 +776,13 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                     self.selectedX = x;
                     self.selectedY = y;
                     self.selectedCellVisible = true;
+
+                    if(self.renderer.mobile || self.renderer.tablet) {
+        	            self.drawTarget = true;
+        	            self.clearTarget = true;
+        	            self.renderer.targetRect = self.renderer.getTargetBoundingRect();
+        	            self.checkOtherDirtyRects(self.renderer.targetRect, null, self.selectedX, self.selectedY);
+        	        }
                 });
                 
                 self.player.onCheckAggro(function() {
@@ -805,7 +815,9 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                     }
                 
                     if(self.isZoningTile(self.player.gridX, self.player.gridY)) {
-                        self.enqueueZoningFrom(self.player.gridX, self.player.gridY);
+                        if(!self.isZoning()) {
+                            self.startZoningFrom(self.player.gridX, self.player.gridY);
+                        }
                     }
                 
                     self.player.forEachAttacker(function(attacker) {
@@ -903,23 +915,16 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                 
                     if(self.map.isDoor(x, y)) {
                         var dest = self.map.getDoorDestination(x, y);
-                            isPortal = Math.abs(y - dest.y) < 5;
                     
                         self.player.setGridPosition(dest.x, dest.y);
                         self.player.turnTo(dest.orientation);
                         self.client.sendTeleport(dest.x, dest.y);
-                        
                         if(self.renderer.mobile && dest.cameraX && dest.cameraY) {
                             self.camera.setGridPosition(dest.cameraX, dest.cameraY);
-                            self.resetZone();
                         } else {
-                            if(isPortal) {
-                                self.assignBubbleTo(self.player);
-                            } else {
-                                self.camera.focusEntity(self.player);
-                                self.resetZone();
-                            }
+                            self.camera.focusEntity(self.player);
                         }
+                        self.resetZone();
                         
                         if(_.size(self.player.attackers) > 0) {
                             setTimeout(function() { self.tryUnlockingAchievement("COWARD"); }, 500);
@@ -934,7 +939,7 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                         self.checkUndergroundAchievement();
                         
                         if(self.renderer.mobile || self.renderer.tablet) {
-                            // When rendering with dirty rects, clear the whole screen on entering a door.
+                            // When rendering with dirty rects, clear the whole screen when entering a door.
                             self.renderer.clearScreen(self.renderer.context);
                         }
                         
@@ -1034,7 +1039,6 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                             log.info(chest.id + " was removed");
                             self.removeEntity(chest);
                             self.removeFromRenderingGrid(chest, chest.gridX, chest.gridY);
-                            self.previousClickPosition = {};
                         });
                     });
                 });
@@ -1131,12 +1135,13 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
 
                                         entity.forEachAttacker(function(attacker) {
                                             attacker.disengage();
+                                            attacker.idle();
                                         });
                                     
                                         // Upon death, this entity is removed from both grids, allowing the player
                                         // to click very fast in order to loot the dropped item and not be blocked.
                                         // The entity is completely removed only after the death animation has ended.
-                                        self.removeFromEntityGrid(entity, entity.gridX, entity.gridY);
+                                        self.removeFromEntityGrid(entity.gridX, entity.gridY);
                                         self.removeFromPathingGrid(entity.gridX, entity.gridY);
                                     
                                         self.updateCursor();
@@ -1170,12 +1175,6 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
             
                     if(entity) {
                         log.info("Despawning " + Types.getKindAsString(entity.kind) + " (" + entity.id+ ")");
-                        
-                        if(entity.gridX === self.previousClickPosition.x
-                        && entity.gridY === self.previousClickPosition.y) {
-                            self.previousClickPosition = {};
-                        }
-                        
                         if(entity instanceof Item) {
                             self.removeItem(entity);
                         } else if(entity instanceof Character) {
@@ -1439,9 +1438,8 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                 this.unregisterEntityPosition(character);
 
                 character.setGridPosition(x, y);
-                
+
                 this.registerEntityPosition(character);
-                this.assignBubbleTo(character);
             } else {
                 log.debug("Teleport out of bounds: "+x+", "+y);
             }
@@ -1500,7 +1498,6 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
         
             if(npc) {
                 msg = npc.talk();
-                this.previousClickPosition = {};
                 if(msg) {
                     this.createBubble(npc.id, msg);
                     this.assignBubbleTo(npc);
@@ -1554,7 +1551,7 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                         });
                     }
                 }
-            }, 2);
+            }, this.renderer.mobile ? 0 : 2);
         },
     
         /**
@@ -1614,11 +1611,8 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                 return null;
             }
             
-            var entities = this.entityGrid[y][x],
-                entity;
-            if(_.size(entities) > 0) {
-                entity = entities[_.keys(entities)[0]];
-            } else {
+            var entity = this.entityGrid[y][x];
+            if(!entity) {
                 entity = this.itemGrid[y][x];
             }
             return entity;
@@ -1740,28 +1734,30 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
             var mouse = this.getMouseGridPosition(),
                 x = mouse.x,
                 y = mouse.y;
-        
-            this.hoveringCollidingTile = this.map.isColliding(x, y);
-            this.hoveringPlateauTile = this.player.isOnPlateau ? !this.map.isPlateau(x, y) : this.map.isPlateau(x, y);
-            this.hoveringMob = this.isMobAt(x, y);
-            this.hoveringItem = this.isItemAt(x, y);
-            this.hoveringNpc = this.isNpcAt(x, y);
-            this.hoveringChest = this.isChestAt(x, y);
-        
-            if(this.hoveringMob || this.hoveringNpc || this.hoveringChest) {
-                var entity = this.getEntityAt(x, y);
             
-                if(!entity.isHighlighted && this.renderer.supportsSilhouettes) {
-                    if(this.lastHovered) {
-                        this.lastHovered.setHighlight(false);
+            if(!this.renderer.mobile && !this.renderer.tablet) {
+                this.hoveringCollidingTile = this.map.isColliding(x, y);
+                this.hoveringPlateauTile = this.player.isOnPlateau ? !this.map.isPlateau(x, y) : this.map.isPlateau(x, y);
+                this.hoveringMob = this.isMobAt(x, y);
+                this.hoveringItem = this.isItemAt(x, y);
+                this.hoveringNpc = this.isNpcAt(x, y);
+                this.hoveringChest = this.isChestAt(x, y);
+        
+                if(this.hoveringMob || this.hoveringNpc || this.hoveringChest) {
+                    var entity = this.getEntityAt(x, y);
+            
+                    if(!entity.isHighlighted && this.renderer.supportsSilhouettes) {
+                        if(this.lastHovered) {
+                            this.lastHovered.setHighlight(false);
+                        }
+                        this.lastHovered = entity;
+                        entity.setHighlight(true);
                     }
-                    this.lastHovered = entity;
-                    entity.setHighlight(true);
                 }
-            }
-            else if(this.lastHovered) {
-                this.lastHovered.setHighlight(false);
-                this.lastHovered = null;
+                else if(this.lastHovered) {
+                    this.lastHovered.setHighlight(false);
+                    this.lastHovered = null;
+                }
             }
         },
     
@@ -1771,17 +1767,9 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
         click: function() {
             var pos = this.getMouseGridPosition(),
                 entity;
-                
-            if(pos.x === this.previousClickPosition.x
-            && pos.y === this.previousClickPosition.y) {
-                return;
-            } else {
-                this.previousClickPosition = pos;
-            }
 	    
     	    if(this.started
-    	    && !this.isZoning()
-    	    && !this.isZoningTile(this.player.nextGridX, this.player.nextGridY)
+    	    && !this.isZoning() 
     	    && !this.player.isDead
     	    && !this.hoveringCollidingTile
     	    && !this.hoveringPlateauTile) {
@@ -1816,21 +1804,14 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
         onCharacterUpdate: function(character) {
             var time = this.currentTime;
         
-            if(character.isAttacking()) {
-                if(character.canAttack(time)) {
-                    character.hit();
-                    if(character.id === this.playerId) {
-                        this.client.sendHit(character.target);
-                        this.audioManager.playSound("hit");
-                    }
-                    if(character.hasTarget() && character.target.id === this.playerId && !this.player.invincible) {
-                        this.client.sendHurt(character);
-                    }
-                } else {
-                    var target = character.target;
-                    if(target && !character.isAdjacentNonDiagonal(target) && !target.isMoving()) {
-                        character.follow(character.target);
-                    }
+            if(character.isAttacking() && character.canAttack(time)) {
+                character.hit();
+                if(character.id === this.playerId) {
+                    this.client.sendHit(character.target);
+                    this.audioManager.playSound("hit");
+                }
+                if(character.hasTarget() && character.target.id === this.playerId && !this.player.invincible) {
+                    this.client.sendHurt(character);
                 }
             }
         },
@@ -1897,6 +1878,11 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
             
                 this.renderer.clearScreen(this.renderer.context);
                 this.endZoning();
+                
+                // Force immediate drawing of all visible entities in the new zone
+                this.forEachVisibleEntityByDepth(function(entity) {
+                    entity.setDirty();
+                });
             }
             else {
                 this.currentZoning = new Transition();
@@ -1904,24 +1890,10 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
             this.bubbleManager.clean();
             this.client.sendZone();
         },
-        
-        enqueueZoningFrom: function(x, y) {
-            this.zoningQueue.push({x: x, y: y});
-            
-            if(this.zoningQueue.length === 1) {
-                this.startZoningFrom(x, y);
-            }
-        },
     
         endZoning: function() {
             this.currentZoning = null;
             this.resetZone();
-            this.zoningQueue.shift();
-            
-            if(this.zoningQueue.length > 0) {
-                var pos = this.zoningQueue[0];
-                this.startZoningFrom(pos.x, pos.y);
-            }
         },
     
         isZoning: function() {
@@ -1929,7 +1901,6 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
         },
     
         resetZone: function() {
-            this.bubbleManager.clean();
             this.initAnimatedTiles();
             this.renderer.renderStaticCanvases();
         },
@@ -2000,6 +1971,10 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
             this.sendHello(this.player);
         
             this.storage.incrementRevives();
+            
+            if(this.renderer.mobile || this.renderer.tablet) {
+                this.renderer.clearScreen(this.renderer.context);
+            }
         
             log.debug("Finished restart");
         },
@@ -2147,6 +2122,51 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
             if(music) {
                 if(music.name === 'cave') {
                     this.tryUnlockingAchievement("UNDERGROUND");
+                }
+            }
+        },
+        
+        forEachEntityAround: function(x, y, r, callback) {
+            for(var i = x-r, max_i = x+r; i <= max_i; i += 1) {
+                for(var j = y-r, max_j = y+r; j <= max_j; j += 1) {
+                    _.each(this.renderingGrid[j][i], function(entity) {
+                        callback(entity);
+                    });
+                }
+            }
+        },
+        
+        checkOtherDirtyRects: function(r1, source, x, y) {
+            var r = this.renderer;
+            
+            this.forEachEntityAround(x, y, 2, function(e2) {
+                if(source && source.id && e2.id === source.id) {
+                    return;
+                }
+                if(!e2.isDirty) {
+                    var r2 = r.getEntityBoundingRect(e2);
+                    if(r.isIntersecting(r1, r2)) {
+                        e2.setDirty();
+                    }
+                }
+            });
+            
+            if(source && !(source.hasOwnProperty("index"))) {
+                this.forEachAnimatedTile(function(tile) {
+                    if(!tile.isDirty) {
+                        var r2 = r.getTileBoundingRect(tile);
+                        if(r.isIntersecting(r1, r2)) {
+                            tile.isDirty = true;
+                        }
+                    }
+                });
+            }
+            
+            if(!this.drawTarget && this.selectedCellVisible) {
+                var targetRect = r.getTargetBoundingRect();
+                if(r.isIntersecting(r1, targetRect)) {
+                    this.drawTarget = true;
+                    this.renderer.targetRect = targetRect;
                 }
             }
         }

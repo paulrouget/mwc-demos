@@ -1,16 +1,14 @@
 
-define(['character', 'timer'], function(Character, Timer) {
+define(['character'], function(Character) {
 
     var Updater = Class.extend({
         init: function(game) {
             this.game = game;
-            this.playerAggroTimer = new Timer(1000);
         },
 
         update: function() {
             this.updateZoning();
             this.updateCharacters();
-            this.updatePlayerAggro();
             this.updateTransitions();
             this.updateAnimations();
             this.updateAnimatedTiles();
@@ -32,16 +30,6 @@ define(['character', 'timer'], function(Character, Timer) {
                     self.updateEntityFading(entity);
                 }
             });
-        },
-        
-        updatePlayerAggro: function() {
-            var t = this.game.currentTime,
-                player = this.game.player;
-            
-            // Check player aggro every 1s when not moving nor attacking
-            if(player && !player.isMoving() && !player.isAttacking()  && this.playerAggroTimer.isOver(t)) {
-                player.checkAggro();
-            }
         },
     
         updateEntityFading: function(entity) {
@@ -203,7 +191,9 @@ define(['character', 'timer'], function(Character, Timer) {
                 var anim = entity.currentAnimation;
                 
                 if(anim) {
-                    anim.update(t);
+                    if(anim.update(t)) {
+                        entity.setDirty();
+                    }
                 }
             });
         
@@ -219,10 +209,15 @@ define(['character', 'timer'], function(Character, Timer) {
         },
     
         updateAnimatedTiles: function() {
-            var t = this.game.currentTime;
+            var self = this,
+                t = this.game.currentTime;
         
             this.game.forEachAnimatedTile(function (tile) {
-                tile.animate(t);
+                if(tile.animate(t)) {
+                    tile.isDirty = true;
+                    tile.dirtyRect = self.game.renderer.getTileBoundingRect(tile);
+                    self.game.checkOtherDirtyRects(tile.dirtyRect, tile, tile.x, tile.y);
+                }
             });
         },
     

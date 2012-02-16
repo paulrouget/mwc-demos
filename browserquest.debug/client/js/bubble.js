@@ -89,12 +89,6 @@ define(['jquery', 'timer'], function($, Timer) {
                 bubble.destroy();
                 delete this.bubbles[id];
             }
-        },
-        
-        forEachBubble: function(callback) {
-            _.each(this.bubbles, function(bubble) {
-                callback(bubble);
-            });
         }
     });
     

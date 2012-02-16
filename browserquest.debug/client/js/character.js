@@ -327,10 +327,8 @@ define(['entity', 'transition', 'timer'], function(Entity, Transition, Timer) {
          * Makes the character follow another one.
          */
         follow: function(followed) {
-            if(followed) {
-                this.followingMode = true;
-                this.moveTo_(followed.gridX, followed.gridY);
-            }
+            this.followingMode = true;
+            this.moveTo_(followed.gridX, followed.gridY);
         },
     
         /**
@@ -521,6 +519,7 @@ define(['entity', 'transition', 'timer'], function(Entity, Transition, Timer) {
     	},
 	
     	hasMoved: function() {
+    	    this.setDirty();
     	    if(this.hasmoved_callback) {
     	        this.hasmoved_callback(this);
     	    }
