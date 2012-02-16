@@ -759,3 +759,16 @@ window.onload = function() {
 
 };
 
+
+function addFullScreeButton(query) {
+  var elt = document.querySelector(query);
+  if (elt.mozRequestFullScreen) {
+    var button = document.createElement("button");
+    button.setAttribute("style", "position:fixed;bottom:0;right:0;height:50px");
+    button.textContent = "fullscreen";
+    button.id = "fullscreenbutton";
+    button.onclick = function() {elt.mozRequestFullScreen()}
+    document.body.appendChild(button);
+  }
+}
+//window.addEventListener("load", function() {addFullScreeButton("canvas")}, true);
