@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, user-scalable=0">
+
+<meta charset=utf-8 />
+<canvas width=200 height=200></canvas>
+<span id="count" onclick="start()">10s</span>
+
+<script>
+  var time = 0;
+  var count = document.querySelector("#count");
+  var ctx = document.querySelector("canvas").getContext("2d");
+  ctx.strokeStyle = "#F06";
+  ctx.lineWidth = 20;
+  ctx.shadowBlur = 20;
+  ctx.shadowColor = "#F06";
+  
+  function draw() {;
+    ctx.beginPath();
+    ctx.arc(100, 100, 80, time * Math.PI / 5, (time + 0.7) * Math.PI / 5, false); 
+    ctx.stroke();
+    count.textContent = 9 - time;
+  }
+  
+  var notification = navigator.mozNotification.createNotification("Firefox is talking to you...", "IT'S TIME!!!!", null);
+  
+  function start() {
+   var interval = setInterval(function() {
+    draw();
+    time++;
+    if (time == 10) {
+      clearInterval(interval);
+      count.textContent = "#";
+      notification.show();
+    }
+   }, 1000);
+  }
+  
+  
+
+</script>
+
+<style>
+   body {
+    background: url(http://i.imgur.com/nrvsI.png) #222;
+  }
+  canvas {
+    margin: auto;
+    display: block;
+    margin-top: 100px;
+  }
+  #count {
+    display: block;
+    position: absolute;
+    width: 100%;
+    top:100px;left:0;
+    height: 200px;
+    line-height: 200px;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 100px;
+    font-family: sans-serif;
+    color: yellow;
+    text-shadow: 0 0 10px yellow;
+  }
+</style>
+

@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+
+<meta name="viewport" content="width=device-width, user-scalable=0">
+
+<div id="phone"><div id="screen"></div><div id="button"></div></div>
+
+<script>
+var v = document.querySelector("#phone");
+var scale, angle;
+
+window.addEventListener("deviceorientation", function(e) {
+    if (!v) return;
+    angle = e.gamma + "deg";
+    scale = (e.beta + 30) / 130;
+}, true);
+  
+window.setInterval(function() {
+    if (!v) return;
+    v.style.MozTransform = "rotate(" + angle + ") scale(" + scale + ")";
+}, 500);
+
+</script>
+
+<style>
+  body {
+    background: url(http://i.imgur.com/nrvsI.png) #ccc;
+  }
+  
+  #phone {
+    width: 100px;
+    height: 185px;
+    margin: 105px auto 0;
+    background: black;
+    border-radius: 15px;
+    border: 1px solid black;
+    -moz-transition: -moz-transform 300ms;
+  }
+  #screen {
+    width: 90px;
+    height: 150px;
+    background: white;
+    border-radius: 10px;
+    margin: 5px;
+    background: #eee;
+  }
+  #button {
+    width: 17px;
+    height: 17px;
+    background: #ccc;
+    margin: auto;
+    border-radius: 50%;
+    margin-top: 7px;
+  }
+  
+</style>

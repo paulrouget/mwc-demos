@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<meta name="viewport" content="width=500, user-scalable=0">
+
+<div style="width: 350px; margin: auto;"></div>
+<img id="tohide" src="http://i.imgur.com/pN8Z6.png" onclick="getCoords()"><br><span id="shadow"></span>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+<script>
+
+function geo_success(position) {
+  var mapcanvas = document.createElement('div');
+  mapcanvas.id = 'mapcanvas';
+  mapcanvas.style.height = '350px';
+  mapcanvas.style.width = '350px';
+
+  var demo = document.querySelector('div');
+  demo.appendChild(mapcanvas);
+
+  var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+  var myOptions = {
+    zoom: 15,
+    center: latlng,
+    mapTypeControl: false,
+    navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  var map = new google.maps.Map(mapcanvas, myOptions);
+
+  var marker = new google.maps.Marker({
+      position: latlng,
+      map: map,
+      title:"You are here!"
+  });
+  document.querySelector("#tohide").style.display = "none";
+  document.querySelector("#shadow").style.width = "300px";
+}
+
+function getCoords() {
+    var demo = document.querySelector('div');
+    navigator.geolocation.getCurrentPosition(geo_success, function() {console.log("geo error")});
+}
+
+
+
+</script>
+
+<style>
+  body {
+    background: url(http://i.imgur.com/nrvsI.png) #fff;
+    padding-top: 100px;
+    text-align: center;
+  }
+  span {
+    display: inline-block;
+    width: 50px; height: 4px;
+    border-radius: 50%;
+    box-shadow: 0 10px 6px grey;
+  }
+  
+  #mapcanvas {
+    border: 4px solid black;
+  }
+</style>
