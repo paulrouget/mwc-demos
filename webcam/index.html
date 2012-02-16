@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<meta charset=utf-8 />
+<title>test</title>
+<meta name="viewport" content="width=device-width; initial-scale=1.0; minimum-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+
+<script>
+  var cwidth, cheight, ctx;
+
+  function processImage(input) {
+    ctx = $("canvas").getContext("2d");
+    cwidth = $("canvas").width;
+    cheight = $("canvas").height;
+    if (input.files.length == 0) return;
+    file = input.files[0];
+    if (!file.type.match(/image.*/)) return;
+
+    $("#camera").style.display = "none";
+    $("#photo").style.display = "block";
+
+    $("#preview").onload = preview;
+
+    $("#preview").src = window.URL.createObjectURL(file);
+  }
+
+  function preview() {
+    var width = $("#preview").width;
+    var height= $("#preview").height;
+    if (width > height) { // landscape
+      var offset = (width - height) / 2;
+      ctx.drawImage($("#preview"), offset, 0, height, height, 0, 0, cwidth, cheight);
+      } else {
+      var offset = (height - width) / 2;
+      ctx.drawImage($("#preview"), 0, offset, width, width, 0, 0, cwidth, cheight);
+    }
+  }
+
+  function process() {
+    ctx.drawImage($("#texture"), 0, 0, cwidth, cheight);
+    var f = getFilter();
+    preview();
+    blackandwhite(f);
+    $("em").style.display = "none";
+  }
+
+  function getFilter() {
+    var canvas = $("canvas");
+    var ctx = canvas.getContext("2d");
+    var im = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    var data = im.data;
+    var filter = [];
+    for (var i = 0, ii = im.data.length; i < ii; i += 4) {
+      var r = data[i + 0];
+      var g = data[i + 1];
+      var b = data[i + 2];
+    }
+    return data;
+  }
+
+  function blackandwhite(f) {
+    var canvas = $("canvas");
+    var ctx = canvas.getContext("2d");
+    var im = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    var data = im.data;
+    for (var i = 0, ii = im.data.length; i < ii; i += 4) {
+      var r = data[i + 0];
+      var g = data[i + 1];
+      var b = data[i + 2];
+      data[i + 0] = (f[i] / 256) * ((r * .393) + (g *.769) + (b * .189)) ;
+      data[i + 1] = (f[i + 1] / 256) * ((r * .349) + (g *.686) + (b * .168));
+      data[i + 2] = (f[i + 2] / 256) * ((r * .272) + (g *.534) + (b * .131));
+    }
+    ctx.putImageData(im, 0, 0);
+  }
+</script>
+
+<!--
+Credit: http://www.flickr.com/photos/visualogist/3215637030/in/photostream/
+-->
+
+<style>
+  body {
+    background: url(http://i.imgur.com/nrvsI.png) #ccc;
+    background-size: 100% 100%;
+  }
+  body, html {
+    margin: 0;
+    height: 100%;
+  }
+  #camera {
+    width: 75px;
+    height: 200px;
+    overflow: hidden;
+    background-image: url(camera.png);
+    background-size: 75px 75px;
+    background-repeat: no-repeat;
+    background-position: 0 110px;
+    margin: auto;
+  }
+  #camera > input {
+    float: right;
+    height: 200px;
+    opacity: 0;
+  }
+  #texture, #preview, #photo {display: none;}
+  #photo {
+    position: relative;
+    max-width: -moz-calc(100% - 40px);
+    margin: 20px;
+    margin-top: 60px;
+  }
+  #photo > * {
+    width: 100%;
+    height: 100%;
+  }
+  #photo > img {
+    position: absolute;
+    top: 0; left: 0;
+  }
+  em {
+    position: absolute;
+    top: -40px;
+  }
+</style>
+
+<div id="camera"><input type="file" accept="image/*" onchange="processImage(this)"></div>
+<img id="texture" src="texture.jpg">
+<img id="preview">
+<div id="photo" onclick="process()">
+  <canvas width="640" height="640"></canvas>
+  <img  width="640" height="640" src="frame.png">
+  <em>Click on the picture…</em>
+</div>
+
+<script>
+  function $(query) { return document.querySelector(query)}
+  function $$(query) { return document.querySelectorAll(query)}
+  NodeList.prototype.forEach = function(fun) {
+    if (typeof fun !== "function") throw new TypeError();
+    for (var i = 0; i < this.length; i++) {
+        fun.call(this, this[i]);
+    }
+  }
+</script>
