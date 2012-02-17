@@ -1,0 +1,470 @@
+
+<!DOCTYPE html>
+
+<meta charset=utf-8 />
+<title>Web APIs</title>
+
+<link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans' rel='stylesheet' type='text/css'>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+<script>function $(query) { return document.querySelector(query)}</script>
+<h1>WebAPIs</h1>
+
+<style>
+  body {
+    background: url(http://i.imgur.com/nrvsI.png) #444;
+    font-family: 'Quattrocento Sans', sans-serif;
+    margin: 0;
+    font-size: 0;
+    text-align: center;
+  }
+  #demos {
+    display: inline-block;
+    min-width: 320px;
+    max-width: 640px;
+    text-align: center;
+  }
+  h1 {
+    color: white;
+    font-size: 40px;
+    margin: 0;
+    background: black;
+    margin: 10px;
+  }
+  .wrapper > div {
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
+    width: 300px; max-height: 180px;
+  }
+  .wrapper {
+    text-align: left;
+    position: relative;
+    margin: 10px;
+    height: 180px;
+    width: 300px;
+    display: inline-block;
+  }
+  .half {
+    width: 140px;
+  }
+  .half > div {
+    width: 140px;
+  }
+
+  #battery, #gps, #notification, #orientation, #vibration, #oldyou { display: none; }
+  body.battery #battery { display: inline-block; }
+  body.gps #gps { display: inline-block; }
+  body.notification #notification { display: inline-block; }
+  body.orientation #orientation { display: inline-block; }
+  body.vibration #vibration { display: inline-block; }
+</style>
+<div id="demos">
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<!--                    BATTERY                     -->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+      <style>
+        #battery {height: 140px;}
+        #battery .t { width: 20px; height: 4px; margin-left: 25px; background: #DFF; box-shadow: 0 0 6px #DFF; margin-top: 10px;}
+        #battery .b { border: 6px solid #DFF; box-shadow: 0 0 6px #DFF; width: 50px; height: 90px; padding: 5px; position: relative; }
+        #battery #charge { height: 20px; width: 50px; position: absolute; bottom: 5px; }
+        #battery .X { background: #F06; box-shadow: 0 0 6px #F06; }
+        #battery .XX { background: #F90; box-shadow: 0 0 6px #F90; }
+        #battery .XXX { background: #D1E751; box-shadow: 0 0 6px #D1E751; }
+        #battery pre { text-shadow: 0 0 6px #DFF; color: #DFF; font-size: 30px; margin: 0; position: absolute; bottom: 0px; line-height: 30px; margin-left: 70px; }
+        #battery .value { color: #F06; text-shadow: 0 0 6px #F06; }
+        #battery .notcharging { color: #222; text-shadow: none; }
+        #battery .notcharging:before { content: "Not "; }
+      </style>
+
+      <div id="battery" class="wrapper">
+        <div>
+          <div class="t"></div>
+          <div class="b">
+            <div id="charge"></div>
+              <pre>Battery <span class="value"></span><br><span class="status notcharging">charging</span></pre>
+            </div>
+          </div>
+      </div>
+
+      <script>
+        addEventListener("load", initBattery);
+        function initBattery() {
+          var b = navigator.mozBattery;
+          if (b === null || b === undefined) { return; }
+          document.body.classList.add("battery");
+          b.addEventListener("chargingchange", updateBattery);
+          b.addEventListener("levelchange", updateBattery);
+          updateBattery();
+        }
+        function updateBattery() {
+          var b = navigator.mozBattery;
+          if (!b) { console.log("Battery: Unexpected error!"); return; }
+          var s = $("#battery .status");
+          b.charging ? s.classList.remove("notcharging"):s.classList.add("notcharging");
+          var div = $('#battery #charge');
+          div.style.height = (~~(b.level * 100) * 0.9) + "px";
+          $("#battery .value").textContent = ~~(b.level * 100) + "%";
+          if (b.level < 0.4) { div.className = "X"; return}
+          if (b.level < 0.55) { div.className = "XX"; return}
+          div.className = "XXX";
+        }
+      </script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<!--                      GPS                       -->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+      <style>
+        #gps { box-shadow: inset 0 0 0 10px black; padding: 0}
+        #gps p { color: #DFF; background-color: #000; display: inline-block; width: 100%; padding: 5px 10px;; font-size: 20px; text-shadow: 0 0 2px #DFF; margin: 0; }
+        #gps span { font-size: 10px; text-shadow: none; margin: 0; color: #F06}
+        #gps img { margin-bottom: -70px; margin-left: -40px; }
+        #map > div {height: 180px}
+        #map.hidden {display: none}
+      </style>
+
+      <div id="gps" class="wrapper">
+        <div>
+          <img src="images/map.svg" height=200>
+          <p class="value">connecting…</p>
+        </div>
+      </div>
+      <div id="map" class="wrapper hidden"><div></div></div>
+
+      <script src="http://maps.google.com/maps/api/js?sensor=false"></script><script>
+        function geo_success(position) {
+          document.body.classList.add("gps");
+          var latAbs = position.coords.latitude * 1000000, lonAbs = position.coords.longitude * 1000000, signlat = 1, signlon = 1;
+          var deglat = ((~~(latAbs / 1000000) * signlat) + '° ' + ~~(  ((latAbs/1000000) - ~~(latAbs/1000000)) * 60)  + '\' ' +  ~~( ~~(((((latAbs/1000000) - ~~(latAbs/1000000)) * 60) - ~~(((latAbs/1000000) - ~~(latAbs/1000000)) * 60)) * 100000) *60/100000 ) + '"');
+          var deglon = ((~~(lonAbs / 1000000) * signlon) + '° ' + ~~(  ((lonAbs/1000000) - ~~(lonAbs/1000000)) * 60)  + '\' ' +  ~~( ~~(((((lonAbs/1000000) - ~~(lonAbs/1000000)) * 60) - ~~(((lonAbs/1000000) - ~~(lonAbs/1000000)) * 60)) * 100000) *60/100000 ) + '"');
+          $("#gps .value").innerHTML = deglat + "/" + deglon + "<span>(Click to see the map)</span>";
+          var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+          var myOptions = { zoom: 15, center: latlng, mapTypeControl: false, navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL}, mapTypeId: google.maps.MapTypeId.ROADMAP };
+          $("#gps").onclick = function() {
+            $("#map").classList.toggle("hidden");
+            setTimeout(function() {
+              var map = new google.maps.Map($("#map > div"), myOptions);
+              var marker = new google.maps.Marker({ position: latlng, map: map, title:"You are here!" });
+            }, 1000);
+          }
+        }
+        navigator.geolocation.getCurrentPosition(geo_success, function(e) {console.log("geo error: " + e)});
+      </script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<!--                  NOTIFICATIONS                 -->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+      <div id="notification" class="half wrapper">
+        <div>
+          <svg onclick="startCounter()" x="0px" y="0px" width="130px" viewBox="0 0 75.545 100">
+              <g fill="#F06" transform="translate(0 0)">
+                <circle cx="37.5" cy="38" r="2"></circle>
+                <circle transform="rotate(30 37.5 62.5)" cx="37.5" cy="38" r="2"></circle>
+                <circle transform="rotate(60 37.5 62.5)" cx="37.5" cy="38" r="2"></circle>
+                <circle transform="rotate(90 37.5 62.5)" cx="37.5" cy="38" r="2"></circle>
+                <circle transform="rotate(120 37.5 62.5)" cx="37.5" cy="38" r="2"></circle>
+                <circle transform="rotate(150 37.5 62.5)" cx="37.5" cy="38" r="2"></circle>
+                <circle transform="rotate(180 37.5 62.5)" cx="37.5" cy="38" r="2"></circle>
+                <circle transform="rotate(210 37.5 62.5)" cx="37.5" cy="38" r="2"></circle>
+                <circle transform="rotate(240 37.5 62.5)" cx="37.5" cy="38" r="2"></circle>
+                <circle transform="rotate(270 37.5 62.5)" cx="37.5" cy="38" r="2"></circle>
+                <circle transform="rotate(300 37.5 62.5)" cx="37.5" cy="38" r="2"></circle>
+                <circle transform="rotate(330 37.5 62.5)" cx="37.5" cy="38" r="2"></circle>
+              </g>
+              <path id="hand" fill="yellow" transform="rotate(44 37.5 62.5)" d="M41.304,58.697c-0.224-0.218-0.459-0.405-0.706-0.573l0.021-0.029L22.894,44.736c-0.724-0.724-1.893-0.724-2.612,0 c-0.724,0.725-0.724,1.889,0,2.612L33.64,65.074l0.026-0.024c0.17,0.251,0.358,0.486,0.576,0.706 c1.949,1.948,5.11,1.948,7.062,0C43.244,63.809,43.244,60.646,41.304,58.697z"/>
+              <path id="frame" d="M66.709,37.949l1.861-1.862l0.646,0.646c0.542,0.541,1.419,0.541,1.955,0l2.442-2.438c0.536-0.541,0.536-1.417,0-1.954 L73.6,32.327l-5.813-5.813h-0.004c-0.537-0.541-1.413-0.541-1.954,0l-2.438,2.438c-0.541,0.541-0.541,1.414,0,1.954 l0.633,0.632l-1.854,1.854c-4.37-3.699-9.586-6.425-15.321-7.838c3.245-2.635,5.316-6.651,5.316-11.162 C52.164,6.442,45.722,0,37.771,0c-7.947,0-14.393,6.442-14.393,14.393c0,4.51,2.076,8.527,5.316,11.162 c-5.73,1.413-10.947,4.139-15.317,7.838l-1.854-1.854l0.628-0.632c0.537-0.541,0.537-1.413,0-1.954l-2.442-2.438 c-0.537-0.541-1.409-0.541-1.95,0l0,0l-5.814,5.813L1.937,32.34c-0.545,0.537-0.545,1.413,0,1.954l2.434,2.438 c0.541,0.541,1.418,0.541,1.954,0l0.65-0.646l1.863,1.862C3.324,44.518,0,52.985,0,62.226C0,83.091,16.91,100,37.771,100 c20.86,0,37.774-16.909,37.774-37.774C75.545,52.985,72.227,44.518,66.709,37.949z M28.097,14.393 c0-5.342,4.331-9.674,9.674-9.674c5.343,0,9.678,4.332,9.678,9.674c0,4.188-2.665,7.75-6.38,9.099v-6.181h0.911 c0.763,0,1.382-0.619,1.382-1.382v-3.45c0-0.764-0.619-1.382-1.382-1.382h-0.018h-8.217h-0.004 c-0.763,0-1.382,0.619-1.382,1.382v3.45c0,0.763,0.619,1.382,1.382,1.382h0.89v6.233 C30.832,22.239,28.097,18.637,28.097,14.393z M37.771,90.777c-15.719,0-28.459-12.743-28.459-28.464 c0-15.714,12.74-28.459,28.459-28.459c15.715,0,28.458,12.745,28.458,28.459C66.229,78.034,53.486,90.777,37.771,90.777z"/>
+          </svg>
+        </div>
+      </div>
+
+      <script>
+        var time = 0, notification;
+        if (navigator.mozNotification) {
+          document.body.classList.add("notification");
+          notification = navigator.mozNotification.createNotification("Firefox is talking to you...", "IT'S TIME!!!!", null);
+        }
+        function setTime(h) {
+          var hand = $("#hand");
+          hand.setAttribute("transform", "rotate(" + (44 + 30 * h) + " 37.5 62.5)");
+          var cs = document.querySelectorAll("#notification circle");
+          for (var i = 0; i < cs.length; i++) {
+            cs[i].setAttribute("fill", i > h ? "black" : "#F06");
+          }
+        }
+        setTime(time);
+        var interval;
+        function startCounter() {
+          if (interval) { clearInterval(interval); interval = null; return; }
+          function tick() {
+            setTime(++time);
+            navigator.mozVibrate(50);
+            if (time == 12) {
+              time = 0; clearInterval(interval); interval = null;
+              if (notification) notification.show();
+              navigator.mozVibrate(500);
+              setTimeout(function() { setTime(time); }, 4000);
+            }
+          }
+          interval = setInterval(tick, 1000); tick();
+        }
+      </script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<!--                   ORIENTATION                  -->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+      <div id="orientation" class="half wrapper">
+        <div >
+          <div id="phone"><div id="screen"></div><div id="button"></div></div>
+        </div>
+      </div>
+
+      <script>
+        var v = $("#phone"); var scale, angle;
+        var classSet = false;
+        window.addEventListener("deviceorientation", function(e) {
+            if (!classSet) {
+              document.body.classList.add("orientation");
+              classSet = true;
+            }
+            angle = e.gamma + "deg"; scale = (e.beta + 30) / 60;
+        }, true);
+        window.setInterval(function() {
+            v.style.MozTransform = "rotate(" + angle + ") scale(" + scale + ")";
+        }, 100);
+      </script>
+
+      <style>
+        #phone { width: 50px; height: 92px; background: black; border-radius: 7px; border: 1px solid black; margin: 44px auto; }
+        #screen { width: 45px; height: 75px; border-radius: 5px; margin: 2px; background: #444; }
+        #button { width: 8px; height: 8px; margin: auto; border-radius: 50%; margin-top: 3px; background: #444; }
+      </style>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<!--                    VIBRATION                   -->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+      <div id="vibration" class="wrapper">
+        <div >
+          <div class="button" val="500">vibrate</div>
+          <div class="button" val="1000" >1s</div>
+          <div class="button" val="2000">2s</div>
+          <div class="button" val="0">stop</div>
+        </div>
+      </div>
+
+      <script>
+        if (navigator.mozVibrate) document.body.classList.add("vibration");
+        var timeout;
+        function clear() {
+          var c = $("#vibration .checked");
+          if (c) c.classList.remove("checked");
+          if (timeout) {
+            clearTimeout(timeout);
+            timeout = null;
+            navigator.mozVibrate(0);
+          }
+        }
+        function vibrate(div) {
+          var val = div.getAttribute("val");
+          clear();
+          setTimeout(function() { navigator.mozVibrate(val); }, 0); // to remove once bug 727381 is fixed.
+          div.classList.add("checked");
+          timeout = setTimeout(clear, val);
+        }
+        $("#vibration").addEventListener("click", function(e) {
+          if (e.target.classList.contains("button")) { vibrate(e.target); }
+        }, true);
+
+      </script>
+
+      <style>
+        #vibration { height: 80px;}
+        #vibration .button { display: inline-block; width: 73px; height: 70px; color: hsl(210,30%,85%); text-shadow: 0 -1px 0 hsla(210,8%,5%,.45); border-top: 1px solid hsla(210,8%,5%,.45); border-bottom: 1px solid hsla(210,8%,5%,.45); border-right: 1px solid hsla(210,8%,5%,.45); background: -moz-linear-gradient(hsla(212,7%,57%,.35), hsla(212,7%,57%,.1) 90%, rgba(255,0,102,0.7) 90%) padding-box; box-shadow: 0 1px 0 hsla(210,16%,76%,.15) inset, 0 0 0 1px hsla(210,16%,76%,.15) inset, 0 1px 0 hsla(210,16%,76%,.15); font-size: 18px; line-height: 70px; text-align: center; }
+        #vibration .checked { color: hsl(208,100%,60%) !important; border-color: hsla(210,8%,5%,.6); background: -moz-linear-gradient(hsla(220,6%,10%,.6), hsla(210,11%,18%,.45) 75%, hsla(210,11%,30%,.4)); box-shadow: 0 1px 3px hsla(210,8%,5%,.25) inset, 0 1px 3px hsla(210,8%,5%,.25) inset, 0 1px 0 hsla(210,16%,76%,.15); }
+        #vibration .button:first-of-type { border-left: 1px solid hsla(210,8%,5%,.45); border-radius: 6px 0 0 6px; }
+        #vibration .button:last-of-type { border-radius: 0 6px 6px 0; }
+      </style>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<!--                   CAMERA PREVIEW               -->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+      <div id="oldyou" class="wrapper">
+        <div >
+          <img id="texture" src="images/texture.jpg">
+          <img id="preview">
+          <div id="photo">
+            <canvas id="canvas" width="640" height="640"></canvas>
+            <img  width="640" height="640" src="images/frame.png">
+          </div>
+        </div>
+      </div>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<!--                   CONNECTION                   -->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+      <div id="connection" class="wrapper half">
+        <div >
+          <svg id="connectbutton" width="60px" height="60px" viewBox="0 0 91.849 100" fill="#F06">
+            <path d="M0,53.572C-0.016,40.7,5.321,30.962,10.48,24.78l0,0c5.187-6.233,10.224-9.236,10.676-9.516l0,0 c3.368-1.993,7.697-0.849,9.667,2.555l0,0c1.966,3.392,0.851,7.747-2.489,9.75l0,0l0.001,0.001c0,0-0.004,0.001-0.015,0.008l0,0 c-0.009,0.004-0.023,0.014-0.042,0.026l0,0c-0.068,0.042-0.194,0.125-0.367,0.244l0,0c-0.351,0.234-0.897,0.625-1.572,1.162l0,0 c-1.349,1.073-3.203,2.74-5.029,4.945l0,0c-3.669,4.467-7.166,10.798-7.181,19.616l0,0c0.003,8.889,3.547,16.882,9.314,22.722l0,0 c5.78,5.83,13.687,9.416,22.48,9.418l0,0c8.793-0.002,16.699-3.588,22.478-9.418l0,0c5.769-5.84,9.313-13.833,9.316-22.722l0,0 c-0.016-8.548-3.294-14.743-6.837-19.195l0,0c-3.373-4.221-6.982-6.572-7.341-6.791l0,0c-0.004-0.003-0.009-0.004-0.012-0.006l0,0 c-0.005-0.003-0.008-0.005-0.011-0.006l0,0c-0.003-0.003-0.007-0.003-0.007-0.003l0,0l0,0c-3.336-2.005-4.452-6.36-2.488-9.752l0,0 c1.972-3.404,6.3-4.548,9.667-2.555l0,0c0.454,0.279,5.491,3.282,10.678,9.516l0,0c5.162,6.183,10.496,15.92,10.481,28.792l0,0 C91.843,79.208,71.283,99.991,45.924,100l0,0C20.565,99.991,0.006,79.208,0,53.572L0,53.572z"/>
+            <path d="M38.859,50.001v-21.43V7.143C38.859,3.199,42.022,0,45.925,0l0,0c3.899,0,7.062,3.199,7.062,7.143l0,0v21.428v21.43h0.002 c0,3.941-3.165,7.141-7.064,7.141l0,0C42.022,57.142,38.859,53.942,38.859,50.001L38.859,50.001z"/>
+          </svg>
+          <span></span>
+        </div>
+      </div>
+
+      <style>
+        #connection {
+          height: 60px;
+        }
+        #connectbutton {
+          vertical-align: middle;
+          padding-left: 20px;
+        }
+        #connection span.online:before {
+          content: "online";
+          font-size: 14px;
+          vertical-align: middle;
+          color: #FDD;
+          text-shadow: 0 0 6px #FDD;
+        }
+      </style>
+
+      <script>
+        function updateOnlineStatus(online) {
+          if (online) {
+            $("#connectbutton").setAttribute("fill", "#BEF202");
+            $("#connection span").className = "online";
+          } else {
+            $("#connectbutton").setAttribute("fill", "#777");
+            $("#connection span").className = "offline";
+          }
+        }
+        document.body.addEventListener("offline", function () { updateOnlineStatus(false) }, false);
+        document.body.addEventListener("online", function () { updateOnlineStatus(true) }, false);
+        updateOnlineStatus(navigator.onLine);
+      </script>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<!--                     CAMERA                     -->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+      <div id="camera" class="wrapper half">
+        <div >
+          <div id="camerawrapper"><input type="file" accept="image/*" onchange="processImage(this)"></div>
+        </div>
+      </div>
+
+      <script>
+        var cwidth, cheight, ctx;
+
+        function processImage(input) {
+          ctx = $("#canvas").getContext("2d");
+          cwidth = $("#canvas").width;
+          cheight = $("#canvas").height;
+          if (input.files.length == 0) return;
+          file = input.files[0];
+          if (!file.type.match(/image.*/)) return;
+
+          $("#oldyou").style.display = "inline-block";
+
+          $("#preview").onload = preview;
+
+          $("#preview").src = window.URL.createObjectURL(file);
+        }
+
+        function preview() {
+          var width = $("#preview").width;
+          var height= $("#preview").height;
+
+          ctx.drawImage($("#texture"), 0, 0, cwidth, cheight);
+          var f = getFilter();
+
+          if (width > height) { // landscape
+            var offset = (width - height) / 2;
+            ctx.drawImage($("#preview"), offset, 0, height, height, 0, 0, cwidth, cheight);
+          } else {
+            var offset = (height - width) / 2;
+            ctx.drawImage($("#preview"), 0, offset, width, width, 0, 0, cwidth, cheight);
+          }
+
+          blackandwhite(f);
+          $("em").style.display = "none";
+        }
+
+        function getFilter() {
+          var canvas = $("#canvas");
+          var ctx = canvas.getContext("2d");
+          var im = ctx.getImageData(0, 0, canvas.width, canvas.height);
+          var data = im.data;
+          var filter = [];
+          for (var i = 0, ii = im.data.length; i < ii; i += 4) {
+            var r = data[i + 0];
+            var g = data[i + 1];
+            var b = data[i + 2];
+          }
+          return data;
+        }
+
+        function blackandwhite(f) {
+          var canvas = $("#canvas");
+          var ctx = canvas.getContext("2d");
+          var im = ctx.getImageData(0, 0, canvas.width, canvas.height);
+          var data = im.data;
+          for (var i = 0, ii = im.data.length; i < ii; i += 4) {
+            var r = data[i + 0];
+            var g = data[i + 1];
+            var b = data[i + 2];
+            data[i + 0] = (f[i] / 256) * ((r * .393) + (g *.769) + (b * .189)) ;
+            data[i + 1] = (f[i + 1] / 256) * ((r * .349) + (g *.686) + (b * .168));
+            data[i + 2] = (f[i + 2] / 256) * ((r * .272) + (g *.534) + (b * .131));
+          }
+          ctx.putImageData(im, 0, 0);
+        }
+      </script>
+
+      <style>
+        #camera { height: 60px; }
+
+        #camerawrapper {
+          width: 60px;
+          height: 60px;
+          overflow: hidden;
+          background-image: url(images/camera.png);
+          background-size: 60px 60px;
+          background-repeat: no-repeat;
+          background-position: 0 0;
+          margin: auto;
+        }
+        #camerawrapper > input {
+          float: right;
+          height: 60px;
+          opacity: 0;
+        }
+
+      </style>
+
+
+      <style>
+        #oldyou {height: 300px}
+        #oldyou > div {max-height: 300px}
+        #texture, #preview {display: none;}
+        #photo {
+          position: relative;
+          max-width: 300px;
+        }
+        #photo > * {
+          width: 100%;
+          height: 100%;
+        }
+        #photo > img {
+          position: absolute;
+          top: 0; left: 0;
+        }
+      </style>
+
+</div>
