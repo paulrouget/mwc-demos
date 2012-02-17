@@ -56,7 +56,7 @@ An HTML5 mini-MMORPG by Little Workshop http://www.littleworkshop.fr
 	        </h1>
 	        <article id="portrait">
 	            <p>
-	               Please tilt your device in landscape mode
+	               Please rotate your device to landscape mode
 	            </p>
 	            <div id="tilt"></div>
 	        </article>
@@ -141,8 +141,10 @@ An HTML5 mini-MMORPG by Little Workshop http://www.littleworkshop.fr
                             </div>
                         </div>
                         <div id="seb">
+                            <!--
                             <span id="note"></span>
                             Music by <a class="clickable" target="_blank" href="http://www.sebastiengouillard.com">Sebastien Gouillard</a>
+                            -->
                         </div>
 	                    <div id="close-credits">
 	                        <span>- click anywhere to close -</span>
@@ -289,8 +291,10 @@ An HTML5 mini-MMORPG by Little Workshop http://www.littleworkshop.fr
 		<footer>
 		    <div id="sharing" class="clickable">
 		      Share this on 
-		      <a href="http://twitter.com/share?url=http%3A%2F%2Fbrowserquest.mozilla.org&amp;text=Play%20Mozilla%27s%20BrowserQuest%20and%20see%20the%20future%20of%20gaming%20on%20the%20Web%20with%20WebSockets%20and%20the%20latest%20HTML5%20technologies%21&amp;related=glecollinet:Creators%20of%20BrowserQuest%2Cwhatthefranck" class="twitter"></a>
-		      <a href="http://www.facebook.com/share.php?u=http://browserquest.mozilla.org/" class="facebook"></a>
+		      <a href="" class="twitter"></a>
+		      <a href="" class="facebook"></a>
+              <!-- <a href="http://twitter.com/share?url=http%3A%2F%2Fbrowserquest.mozilla.org&amp;text=Play%20Mozilla%27s%20BrowserQuest%20and%20see%20the%20future%20of%20gaming%20on%20the%20Web%20with%20WebSockets%20and%20the%20latest%20HTML5%20technologies%21&amp;related=glecollinet:Creators%20of%20BrowserQuest%2Cwhatthefranck" class="twitter"></a>
+              <a href="http://www.facebook.com/share.php?u=http://browserquest.mozilla.org/" class="facebook"></a> -->
 		    </div>
 		    <div id="credits-link" class="clickable">
 		      – <span id="toggle-credits">Credits</span>
@@ -331,27 +335,5 @@ An HTML5 mini-MMORPG by Little Workshop http://www.littleworkshop.fr
         
         <script src="js/lib/log.js"></script>
         <script data-main="js/home" src="js/lib/require-jquery.js"></script>
-
-        <style>
-          body:-moz-full-screen footer,
-          body:-moz-full-screen #fullscreenbutton,
-          body:-moz-full-screen #moztab {
-            display: none;
-          }
-        </style>
-        <script>
-          function addFullScreeButton(query) {
-            var elt = document.querySelector(query);
-            if (elt.mozRequestFullScreen) {
-              var button = document.createElement("button");
-              button.setAttribute("style", "position:fixed;bottom:0;right:0;height:50px");
-              button.textContent = "fs";
-              button.id = "fullscreenbutton";
-              button.onclick = function() {elt.mozRequestFullScreen()}
-              document.body.appendChild(button);
-            }
-          }
-          //addFullScreeButton("body");
-        </script>
 	</body>
 </html>

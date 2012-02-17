@@ -9,18 +9,18 @@
       html {
         font-family: Ubuntu, sans-serif;
         background-color: #241a14;
-        background-repeat: repeat-x;
-        background-position: left top;
         text-align: center;
         color:#987;
         margin: 0px;
         padding: 0px;
+        height: 100%;
       }
       body {
         display: block;
         text-align: center;
         margin: 0px;
         padding: 0px;
+        height: 100%;
       }
       #c {
         display:inline-block;
@@ -28,6 +28,7 @@
         background-position: -240px 0px;
         margin: auto;
         padding: 0px;
+        width: 100%;
       }
       #leaves_left {
         position: absolute;
@@ -65,12 +66,14 @@
       }
 
 
-      @media all and (min-height: 650px) and (min-width: 900px) {
+      @media all and (min-height: 620px) and (min-width: 900px) {
         #c:not(:-moz-full-screen) {
           border: 3px solid white;
           margin-top: 75px;
         }
-
+        #c {
+          width: 800px;
+        }
         body {
           background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(sky.png);
           background-size: 100% 100%;
