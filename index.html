@@ -1,60 +1,107 @@
 <!DOCTYPE html>
 
 <meta charset="utf8">
-<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
 <title>HTML5!!!</title>
 
-<script></script>
+<script>
+    window.onload = function() {
+      var device = sessionStorage.getItem("device");
+      if (device) document.body.className = device;
+      else document.body.className = "NOTCONFIGURED";
+    }
+</script>
+
 <style>
-  body {
-    background: url(tab.png), url(noise.png) #151515;
-    background-repeat: no-repeat, repeat;
-    background-position: top right, top left;
-    padding-top: 100px;
-    border-top: 2px solid white;
-    margin: 0;
+  li { display: none; }
+  body.PHONE li.phone {display: inline-block}
+  body.TABLET li.tablet {display: inline-block}
+  body.ALL li {display: inline-block}
+  body.NOTCONFIGURED .setupmsg {display: block}
+  body.NOTCONFIGURED li {display: inline-block}
+
+  .setupmsg,.setupmsg > a { font-size: 14px; }
+  .setupmsg { display: none; width: 100%; background-color: black; color: orange; }
+
+  * { margin: 0; padding: 0; font-size: 0; -moz-box-sizing: border-box;  -webkit-box-sizing: border-box}
+  html {
+    height: 100%;
+    background-color: #216FA3;
+    background-image: url(img/tab.png), -moz-radial-gradient(90% 20%, rgba(0,0,0,0), rgba(0,0,0,1)), url(img/noise.png);
+    background-image: url(img/tab.png), -webkit-radial-gradient(90% 20%, rgba(0,0,0,0), rgba(0,0,0,1)), url(img/noise.png);
+    background-position: top right;
+    background-repeat: no-repeat, no-repeat, repeat;
+    background-size: auto auto, 100% 100%, auto auto;
+    border-top: 3px solid white;
   }
 
-  #tbs {
-    max-width: 750px;
+  ul {
+    height: 100%;
+    width: 750px;
     margin: auto;
-    text-align: center;
+    padding-top: 160px;
   }
 
-  #tbs > a {
-    width: 150px; height: 150px;
-    overflow: hidden;
-    border: 3px solid #999;
-    display: inline-block;
-    margin: 0 10px 20px;
+  li:nth-of-type(6n + 0):after, li:nth-of-type(6n + 0) { background-color: #D7FA0F}
+  li:nth-of-type(6n + 1):after, li:nth-of-type(6n + 1) { background-color: #FF5817}
+  li:nth-of-type(6n + 2):after, li:nth-of-type(6n + 2) { background-color: #12CDBC}
+  li:nth-of-type(6n + 3):after, li:nth-of-type(6n + 3) { background-color: #A9845D}
+  li:nth-of-type(6n + 4):after, li:nth-of-type(6n + 4) { background-color: #FF0349}
+  li:nth-of-type(6n + 5):after, li:nth-of-type(6n + 5) { background-color: #F2EDD4}
+
+  li:after {
+    content: ""; display: block;
+    width: 30px; height: 30px;
+    -moz-transform: rotate(45deg);
+    position: absolute;
+    bottom: -5px; left: 35px;
   }
 
-  #tbs > a > img {
-    background-color: #222;
-    width: auto;
-    height: 150px;
-    display: block;
+  li:before {
+    content: ""; display: block;
+    width: 60px; height: 4px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0px; left: 20px;
+    box-shadow: 0 25px 10px black;
+    z-index: 0;
   }
 
-  #tbs > a > span {
-    font: 12px/24px sans-serif;
+  li {
+    width: 100px;
+    margin: 0 25px 65px;
+    height: 100px;
     position: relative;
-    top: -24px;
-    background-color: rgba(0,0,0,0.8);
-    color: white;
-    width: 100%;
-    display: inline-block;
+    padding: 5px;
   }
+
+  li > a {
+    position: absolute;
+    z-index: 1;
+    width: 90px;
+    height: 90px;
+  }
+
+  li > a > img {
+    width: 90px;
+    height: 90px;
+  }
+
+  @media all and (max-width: 800px) { ul { width: 450px; padding-top: 100px; } }
+  @media all and (max-width: 500px) { html {height: auto} ul { width: 300px; padding-top: 60px; } }
+  @media all and (max-width: 300px) { html {height: auto} ul { width: 150px; } }
 
 </style>
 
-<div id="tbs">
-  <a href="apis/"><img src="thumbnails/battery.png"><span>APIs</span></a>
-  <a href="runfield/"><img src="thumbnails/runfield.png"><span>Runfield</span></a>
-  <a href="browserquest/client/"><img src="thumbnails/browserquest.png"><span>BrowserQuest</span></a>
-  <a href="http://hahlo.com"><img src="thumbnails/hahlo.png"><span>Hahlo Twitter client</span></a>
-  <a href="http://foodsense.is"><img src="thumbnails/foodsense.png"><span>Foodsense.is</span></a>
-  <a href="http://poetfreak.com"><img src="thumbnails/poetfreak.png"><span>PoetFreak.com</span></a>
-  <a href="webgl/minegl.html"><img src="thumbnails/minegl.png"><span>WebGL Cube</span></a>
-  <a href="webgl/gnomwgl.htm"><img src="thumbnails/gnome.png"><span>WebGL Gnome</span></a>
-</div>
+<ul>
+  <li class="phone"><a href="apis/"><h1>WebAPIs</h1><img src="img/apis.png"></a>
+  <li class="tablet"><a href="runfield/"><h1>Runfield</h1><img src="img/runfield.png"></a>
+  <li class="phone tablet"><a href="browserquest/"><h1>BrowserQuest</h1><img src="img/browserquest.png"></a>
+  <li class="phone tablet"><a href="http://hahlo.com"><h1>Hahlo Twitter</h1><img src="img/hahlo.png"></a>
+  <li class="phone tablet"><a href="http://foodsense.is/"><h1>Foodsense</h1><img src="img/foodsense.png"></a>
+  <li class="phone tablet"><a href="http://www.poetfreak.com/explore"><h1>PoetFreak</h1><img src="img/poetfreak.png"></a>
+  <li class="tablet"><a href="webgl/minegl.html"><h1>MineGL</h1><img src="img/minegl.png"></a>
+  <li class="tablet"><a href="webgl/gnomwgl.jpg"><h1>GnomeGL</h1><img src="img/gnomegl.png"></a>
+</ul>
+
+<p class="setupmsg">Your device is not configured for the demos. <a href="setup.html">Please click here</a>.</p>
