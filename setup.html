@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<meta charset="utf8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+<title>setup</title>
+
+<a href="index.html">DEMOS are here.</a>
+<p>Configuring your device will filter the list for the visible demos.
+This will hide the demos incompatible with your device.</p>
+<button style="font-size: 40px" onclick="check()">CONFIGURE</button>
+<p>Want to see all the demos again? Configure your device as "ALL".</p>
+
+<script>
+  function check() {
+    var device = sessionStorage.getItem("device");
+    if (!device) {
+      setup();
+      check();
+    } else {
+      var keep = window.confirm("This device is a configured as a " + device + ". Is that correct?");
+      if (!keep) {
+        setup();
+        check();
+      }
+    }
+  }
+
+  function setup() {
+    var tablet = window.confirm("Is this device a TABLET?");
+    if (tablet) {
+      sessionStorage.setItem("device", "TABLET");
+    } else {
+      var phone = window.confirm("Is this device a PHONE?");
+      if (phone) {
+        sessionStorage.setItem("device", "PHONE");
+      } else {
+        sessionStorage.setItem("device", "ALL");
+      }
+    }
+  }
+</script>
+
