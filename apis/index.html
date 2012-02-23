@@ -109,9 +109,24 @@
       vertical-align: middle;
       text-align: left;
     }
+
+    #time {
+      display: none;
+      width: 100%;
+      font-size: 70px;
+      text-align: center;
+      margin: 160px 0 90px;
+    }
+    #battery:-moz-full-screen #time {
+      display: block;
+    }
+    #battery:-moz-full-screen {
+      box-shadow: inset 0 0 20px 5px black;
+    }
   </style>
 
   <div id="battery" class="wrapper">
+    <div id="time"></div>
     <svg version="1.1" width="120px" height="66px" viewBox="0 0 400 220" >
     <style>.st0{fill:url(#bottomTrimFront_1_);} .st1{opacity:0.3;fill:url(#glassHilight_1_);} .st2{fill:url(#topTrimFront_1_);} .st3{opacity:0.4;fill:url(#glass_1_);} .st4{fill:url(#top_1_);} .st5{fill:url(#BATTERYLEVEL_1_);} .st6{fill:url(#baseTrimBottom_1_);} .st7{fill:url(#tip_1_);} .st8{fill:url(#topTrim_x5F_Back_1_);} .st9{fill:url(#base_1_);}</style>
     <linearGradient id="topTrim_x5F_Back_1_" gradientUnits="userSpaceOnUse" x1="-5475.0386" y1="4334.4043" x2="-5475.0386" y2="4497.5049" gradientTransform="matrix(1 0 0 1 5831.2637 -4298.5059)">
@@ -258,7 +273,7 @@
   </div>
 
   <script>
-    addEventListener("load", initBattery);
+    initBattery();
     function initBattery() {
       var b = navigator.mozBattery;
       if (b === null || b === undefined) { return; }
@@ -276,6 +291,13 @@
       rect.setAttribute("width", ~~(b.level * 360));
       $("#battery .value").textContent = ~~(b.level * 100) + "%";
     }
+
+    var date = new Date();
+    $("#time").textContent = date.getHours() + ":" + date.getMinutes();
+    setInterval(function() {
+      var date = new Date();
+      $("#time").textContent = date.getHours() + ":" + date.getMinutes();
+    }, 60000);
   </script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -579,4 +601,30 @@
         }
       </script>
 
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<!--                   FULLSCREEN                   -->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+      <div id="fullscreen" class="wrapper">
+          <button onclick="fullScreen()">FullScreen»</button>
+      </div>
+      <script>
+        function freeze(e) {
+          e.preventDefault();
+        }
+
+        window.addEventListener("mozfullscreenchange", function() {
+          if (document.mozFullScreenElement) {
+            $("#battery").addEventListener("touchstart", freeze, true);
+            $("#battery").addEventListener("touchmove", freeze, true);
+          } else {
+            $("#battery").removeEventListener("touchstart", freeze, true);
+            $("#battery").removeEventListener("touchmove", freeze, true);
+          }
+        }, true);
+
+        function fullScreen() {
+          $('#battery').mozRequestFullScreen();
+        }
+      </script>
 </div>
