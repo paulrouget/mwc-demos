@@ -68,9 +68,10 @@
       background-repeat: no-repeat;
       vertical-align: middle;
       line-height: 60px;
+      background-image: url(img/online.png), url(img/offline.png);
     }
-    #connection span.online  {background-image: url(img/online.png)}
-    #connection span.offline {background-image: url(img/offline.png)}
+    #connection span.online  {background-size: 60px 60px, 0 0}
+    #connection span.offline {background-size: 0 0, 60px 60px}
   </style>
 
   <script>
@@ -78,9 +79,11 @@
       if (online) {
         $("#connection span").className = "online";
         $("#connection span").textContent = "Online";
+        $("#mapbutton").style.visibility = "visible";
         } else {
         $("#connection span").className = "offline";
         $("#connection span").textContent = "Offline";
+        $("#mapbutton").style.visibility = "hidden";
       }
     }
     document.body.addEventListener("offline", function () { updateOnlineStatus(false) }, false);
@@ -289,9 +292,9 @@
       <div id="gps" class="wrapper">
         <img src="img/map.png" width="150">
         <p>GPS Location<br>
-          <span class="value">Connecting…</span><br>
+          <span class="value">connecting…</span><br>
         </p>
-        <button>View on a map »</button>
+        <button id="mapbutton">View on a map »</button>
       </div>
       <div id="map" class="wrapper hidden"><div></div></div>
 
