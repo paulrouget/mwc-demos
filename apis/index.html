@@ -427,8 +427,8 @@
         function vibrate(div) {
           var val = div.getAttribute("val");
           clear();
-          setTimeout(function() { navigator.mozVibrate(val); }, 0); // to remove once bug 727381 is fixed.
           div.classList.add("checked");
+          navigator.mozVibrate(val);
           timeout = setTimeout(clear, val);
         }
         $("#vibration").addEventListener("click", function(e) {
