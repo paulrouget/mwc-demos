@@ -180,36 +180,6 @@ window.onload = function() {
     }
     return a;
   };
-  var sfxVolume = 1;
-  var playSfx = function(a) {
-    var sfx = a.shift();
-    a.push(sfx);
-    if (musicOn) {
-      sfx.volume = sfxVolume;
-      sfx.play();
-    }
-    return sfx;
-  };
-  var stopAllSfx = function(sfxs) {
-    for (var i in sfxs) {
-      if (i != 'fall')
-        sfxs[i].forEach(function(s){ s.pause(); });
-    }
-  }
-  setSfxVolume = function(v) {
-    sfxVolume = v;
-  };
-  setSfxVolume(0.4);
-  var sfx = {
-    jumps: makeAudios('hyppy'),
-    landings: makeAudios('hyppy'),
-    fall: makeAudios('hyppy'),
-    boosts: makeAudios('hyppy'),
-    boom: makeAudios('hyppy')
-  };
-  var music = createAudio('hyppy');
-  music.loop = true;
-  music.volume = 0;
   targetOrigin = '*';
   var DemoState = {
     running: false,
@@ -235,7 +205,6 @@ window.onload = function() {
       }
     } else if ("stop_demo" == e.data) {
       DemoState.running = false;
-      music.pause();
       window.parent.postMessage('finished_exit', targetOrigin);
     }
   }, false);
@@ -284,7 +253,6 @@ window.onload = function() {
       }
       fox_boost.frameCache = fc;
     }
-    music.play();
     var randomFactors = function() {
       var a = [];
       for (var i=1; i<5; i++) {
@@ -440,7 +408,6 @@ window.onload = function() {
         jump = 20;
         onground = false;
         down = true;
-        playSfx(sfx.jumps);
       }
       ev.preventDefault();
     };
@@ -486,8 +453,6 @@ window.onload = function() {
     var gameOverTime = 0;
     var titleScreenTime = 0;
 
-    var tweeter = document.getElementById('tweeter');
-
     draw = function() {
       if (!DemoState.running) return;
       var st = new Date().getTime();
@@ -497,7 +462,6 @@ window.onload = function() {
       var timeF = (animElapsed/16);
       var t, drawTime, elapsed;
       if (!gameStarted) {
-        stopAllSfx(sfx);
         if (avgFps > 0)
           slow = (slow && avgFps < 50) || (!slow && avgFps < 25);
         var ground = 40*magF+fn(offset+512*magF, false, true);
@@ -544,17 +508,7 @@ window.onload = function() {
             var rcw = ctx.measureText('New Record!').width;
             ctx.fillText('New Record!', (400-rcw/2), 288*magF);
           }
-          var src = (
-            'http://platform.twitter.com/widgets/tweet_button.html?via=mozhacks&count=horizontal&lang=en'
-              + '&url=' + encodeURIComponent(document.location.toString())
-          ) + '&text='+encodeURIComponent('Ran into a ditch after amassing '+points+' points in #RunfieldSD');
-          if (tweeter.currentSrc != src) {
-            tweeter.currentSrc = src;
-            tweeter.contentWindow.location.replace(src);
-          }
-          tweeter.style.display = a == 1 ? 'inline' : 'none';
         } else {
-          tweeter.style.display = 'none';
           if (!titleScreenTime) {
             titleScreenTime = st;
           }
@@ -593,14 +547,12 @@ window.onload = function() {
         offset += elapsed*speed;
         speed = speed + (0.2-speed)*0.02;
       } else {
-        tweeter.style.display = 'none';
         var ground = 40*magF+fn((offset+50+116));
         if (y > 400) {
           ctx.fillStyle = 'rgba(255,255,255,'+((y-400) / 720)+')';
           ctx.fillRect(0,0,800,400);
         }
         if (y > 400+512) {
-          playSfx(sfx.fall);
           gameOver = true;
           gameOverTime = st;
           gameStarted = false;
@@ -627,21 +579,12 @@ window.onload = function() {
               landing = landing || vy > 10;
               vy = 0;
             }
-            if (landing) playSfx(sfx.landings);
             onground = Math.abs(y-ground) < 30 && jump <= 0;
         }
         lastY = y;
         var trailers = offset > 1*po+800;
         var boosting = offset > 1*po+200;
         var booming = offset > 2*po+200;
-        if (!wasBoosting && boosting) playSfx(sfx.boosts);
-        if (!wasBooming && booming) {
-          stopAllSfx(sfx);
-          playSfx(sfx.boom);
-        }
-        if (booming && sfx.boom[0].currentTime > 3) {
-          setSfxVolume(0);
-        }
         wasBoosting = boosting;
         wasBooming = booming;
         var animI = (boosting ? fox_boost : fox_right);
@@ -734,16 +677,6 @@ window.onload = function() {
         totalFrameTime = 0;
       }
       frame++;
-      if (booming && musicOn) {
-        music.volume = 0;
-      } else if (!music.paused) {
-        if (musicOn) music.volume = Math.min((0.01+music.volume)*(1.0+elapsed/1000), 1);
-        else music.volume = Math.max(music.volume*(1.0-elapsed/200),0);
-        if (music.volume < 0.01) music.volume = 0;
-        if (!musicOn && music.volume == 0) music.pause();
-      }
-      if (musicOn && (music.paused || music.currentTime == music.duration || music.currentTime == 0))
-        music.play();
       if (window.requestAnimationFrame) {
         window.requestAnimationFrame(draw);
       } else if (window.mozRequestAnimationFrame) {
@@ -756,9 +689,7 @@ window.onload = function() {
     }
     draw();
   }
-
   startLoad();
-
 };
 
 
