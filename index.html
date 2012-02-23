@@ -4,104 +4,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
 <title>HTML5!!!</title>
 
-<script>
-    window.onload = function() {
-      var device = sessionStorage.getItem("device");
-      if (device) document.body.className = device;
-      else document.body.className = "NOTCONFIGURED";
-    }
-</script>
-
 <style>
-  li { display: none; }
-  body.PHONE li.phone {display: inline-block}
-  body.TABLET li.tablet {display: inline-block}
-  body.ALL li {display: inline-block}
-  body.NOTCONFIGURED .setupmsg {display: block}
-  body.NOTCONFIGURED li {display: inline-block}
-
-  .setupmsg,.setupmsg > a { font-size: 14px; }
-  .setupmsg { display: none; width: 100%; background-color: black; color: orange; }
-
-  * { margin: 0; padding: 0; font-size: 0; -moz-box-sizing: border-box;  -webkit-box-sizing: border-box}
-  html {
-    height: 100%;
-    background-color: #216FA3;
-    background-image: url(img/tab.png), -moz-radial-gradient(90% 20%, rgba(0,0,0,0), rgba(0,0,0,1)), url(img/noise.png);
-    background-image: url(img/tab.png), -webkit-radial-gradient(90% 20%, rgba(0,0,0,0), rgba(0,0,0,1)), url(img/noise.png);
-    background-position: top right;
-    background-repeat: no-repeat, no-repeat, repeat;
-    background-size: auto auto, 100% 100%, auto auto;
-    border-top: 3px solid white;
-  }
-
-  ul {
-    height: 100%;
-    width: 750px;
-    margin: auto;
-    padding-top: 160px;
-  }
-
-  li:nth-of-type(6n + 0):after, li:nth-of-type(6n + 0) { background-color: #D7FA0F}
-  li:nth-of-type(6n + 1):after, li:nth-of-type(6n + 1) { background-color: #FF5817}
-  li:nth-of-type(6n + 2):after, li:nth-of-type(6n + 2) { background-color: #12CDBC}
-  li:nth-of-type(6n + 3):after, li:nth-of-type(6n + 3) { background-color: #A9845D}
-  li:nth-of-type(6n + 4):after, li:nth-of-type(6n + 4) { background-color: #FF0349}
-  li:nth-of-type(6n + 5):after, li:nth-of-type(6n + 5) { background-color: #F2EDD4}
-
-  li:after {
-    content: ""; display: block;
-    width: 30px; height: 30px;
-    -moz-transform: rotate(45deg);
-    position: absolute;
-    bottom: -5px; left: 35px;
-  }
-
-  li:before {
-    content: ""; display: block;
-    width: 60px; height: 4px;
-    border-radius: 50%;
-    position: absolute;
-    bottom: 0px; left: 20px;
-    box-shadow: 0 25px 10px black;
-    z-index: 0;
-  }
-
-  li {
-    width: 100px;
-    margin: 0 25px 65px;
-    height: 100px;
-    position: relative;
-    padding: 5px;
-  }
-
-  li > a {
-    position: absolute;
-    z-index: 1;
-    width: 90px;
-    height: 90px;
-  }
-
-  li > a > img {
-    width: 90px;
-    height: 90px;
-  }
-
-  @media all and (max-width: 800px) { ul { width: 450px; padding-top: 100px; } }
-  @media all and (max-width: 500px) { html {height: auto} ul { width: 300px; padding-top: 60px; } }
-  @media all and (max-width: 300px) { html {height: auto} ul { width: 150px; } }
+  * { margin: 0; padding: 0; font-size: 0; -moz-box-sizing: border-box;  -webkit-box-sizing: border-box;text-decoration: none;}
+  html { background-image: url(img/greybg.png); }
+  header { font-size: 25px; font-weight: bold; padding-left: 30px; color: black; background-image: url(img/whitebg.png); height: 60px; line-height: 60px; vertical-align: middle; border-bottom: 3px solid rgba(200,0,0,0.5) }
+  ul { height: 100%; width: -moz-calc(4 * 188px); margin: auto; padding-top: 60px; } 
+  li { display: inline-block; margin: 20px; } 
+  h1 { font-size: 14px; color: white!important; text-align: center; margin: 12px 0 25px; } 
+  img { border: 12px solid #F0F0F0; border-radius: 8px; }
+  @media all and (max-width: 800px) { ul { width: -moz-calc(3 * 188px); padding-top: 50px; } }
+  @media all and (max-width: 500px) { ul { width: -moz-calc(2 * 144px); padding-top: 20px; } img {width: 110px; border-width: 7px} li {margin: 15px} }
 
 </style>
 
+<header>
+  HTML5 Demos
+</header>
+
 <ul>
-  <li class="phone"><a href="apis/"><h1>WebAPIs</h1><img src="img/apis.png"></a>
-  <li class="tablet"><a href="runfield/"><h1>Runfield</h1><img src="img/runfield.png"></a>
-  <li class="phone tablet"><a href="browserquest/client/"><h1>BrowserQuest</h1><img src="img/browserquest.png"></a>
-  <li class="phone tablet"><a href="http://hahlo.com"><h1>Hahlo Twitter</h1><img src="img/hahlo.png"></a>
-  <li class="phone tablet"><a href="http://foodsense.is/"><h1>Foodsense</h1><img src="img/foodsense.png"></a>
-  <li class="phone tablet"><a href="http://www.poetfreak.com/explore"><h1>PoetFreak</h1><img src="img/poetfreak.png"></a>
-  <li class="tablet"><a href="webgl/minegl.html"><h1>MineGL</h1><img src="img/minegl.png"></a>
-  <li class="tablet"><a href="webgl/gnomwgl.htm"><h1>GnomeGL</h1><img src="img/gnomegl.png"></a>
+  <li class="phone"><a href="apis/"><img src="img/apis.png"><h1>WebAPIs</h1></a>
+  <li class="tablet"><a href="runfield/"><img src="img/runfield.png"><h1>Runfield</h1></a>
+  <li class="phone tablet"><a href="browserquest/client/"><img src="img/browserquest.png"><h1>BrowserQuest</h1></a>
+  <li class="phone tablet"><a href="http://hahlo.com"><img src="img/hahlo.png"><h1>Hahlo Twitter</h1></a>
+  <li class="phone tablet"><a href="http://foodsense.is/"><img src="img/foodsense.png"><h1>Foodsense</h1></a>
+  <li class="phone tablet"><a href="http://www.poetfreak.com/explore"><img src="img/poetfreak.png"><h1>PoetFreak</h1></a>
+  <li class="tablet"><a href="webgl/minegl.html"><img src="img/minegl.png"><h1>MineGL</h1></a>
+  <li class="tablet"><a href="webgl/gnomwgl.htm"><img src="img/gnomegl.png"><h1>GnomeGL</h1></a>
 </ul>
 
 <p class="setupmsg">Your device is not configured for the demos. <a href="setup.html">Please click here</a>.</p>
