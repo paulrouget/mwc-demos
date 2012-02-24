@@ -1,0 +1,453 @@
+<!doctype html>
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+<title>Food Sense | Read</title>
+<meta name="author" content="Julie Shah Lamba" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/foodsense-blog" />
+
+<!-- CSS -->
+<link rel="stylesheet" media="screen, print" href="/-/css/basic.css" />
+<!--[if gte IE 7]><!-->
+<link rel="stylesheet" media="screen" href="/-/css/screen.css" />
+<!--<![endif]-->
+
+<link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">	
+
+<!-- SCRIPTS -->
+<script type="text/javascript" src="http://use.typekit.com/shn5sjh.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.js"></script>
+<script>!window.jQuery && document.write(unescape('%3Cscript src="/-/js/jquery-1.6.1.js"%3E%3C/script%3E'))</script>
+<!-- enable HTML5 elements in IE7+8 --> 
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<script src="/-/js/selectivizr.js"></script>
+<![endif]--> 
+<script type="text/javascript" src="/-/js/scripts.js"></script>
+
+<script src="/-/js/jquery.fitvids.js"></script>
+<script>
+  $(document).ready(function(){$(".video").fitVids();});
+</script>
+
+</head>
+	
+<body id="blog-category">
+
+<div id="wrap">
+
+<header role="masthead">
+	<h1 id="branding"><a href="/" title="Home">Food Sense</a></h1>
+	<nav>
+		<ul>
+			<li id="t-tastemakers"><a href="http://foodsense.is/tastemakers">Tastemakers</a></li>
+			<li id="t-blog"><a href="http://foodsense.is/blog">Blog</a></li>
+			<li id="t-vendors"><a href="http://foodsense.is/a-list">The A-List</a></li>
+			<li id="t-contribute"><a href="http://foodsense.is/contribute">Contribute</a></li>
+			<li id="t-about"><a href="http://foodsense.is/about">About</a></li>
+		</ul>
+	</nav>
+</header>
+
+<div id="content" class="blog post multiple">
+
+<header role="page">
+	<h1 class="">Read</h1>
+	<p>Displaying all entries labeled "Read".</p>
+
+	<form id="dropdown" name="catmenu" action="">
+		<select name="selcat" onchange="location=document.catmenu.selcat.options[document.catmenu.selcat.selectedIndex].value;">
+			<option value="">Select Category</option>
+			
+			<option value="http://foodsense.is/blog/show/category/cook">Cook</option>
+			
+			<option value="http://foodsense.is/blog/show/category/dine">Dine</option>
+			
+			<option value="http://foodsense.is/blog/show/category/events">Events</option>
+			
+			<option value="http://foodsense.is/blog/show/category/know">Know</option>
+			
+			<option value="http://foodsense.is/blog/show/category/monologues">Monologues</option>
+			
+			<option value="http://foodsense.is/blog/show/category/my-veg-life">My Veg Life</option>
+			
+			<option value="http://foodsense.is/blog/show/category/read">Read</option>
+			
+			<option value="http://foodsense.is/blog/show/category/shop">Shop</option>
+			
+			<option value="http://foodsense.is/blog/show/category/ten-things">Ten Things</option>
+			
+			<option value="http://foodsense.is/blog/show/category/travel">Travel</option>
+			
+ 		</select>
+ 	</form>
+</header>
+	
+<section id="main">
+
+
+<article>
+	<header>
+	<h1><a href="http://foodsense.is/blog/whats-a-vegan-baker-to-do">What&#8217;s a vegan baker to do?</a></h1>
+		</header>
+		
+	<div class="group">
+		<img src="http://foodsense.is/uploads/post-images/Vegan_Baker_Blog.jpg" class="post-image border" alt="image" />			<p>As I&#8217;m gearing up for my final exam in accounting later today, I&#8217;ll share a business problem with you, recently examined in <a href="http://wsj.com">The Wall Street Journal</a>. With two wins on Food Network&#8217;s Cupcake Wars, TV appearances by Sara Beth Russert, of Seattle&#8217;s <a href="http://www.mightyo.com/">Mighty O&#8217; Donuts</a>, the growth of NYC&#8217;s <a href="http://babycakesnyc.com/">Babycakes</a> to Los Angeles and Orlando&#8217;s Walt Disney World, (and of course, the many amazing vegan <a href="http://bittersweetblog.wordpress.com/">blogs</a> and <a href="http://www.amazon.com/Vegan-Cupcakes-Take-Over-World/dp/1569242739">books</a> out there) - you could say that vegan baking is making a pretty delicious name for itself. Still, however, </p><blockquote><p>Some vegan bakeries don&#8217;t flaunt their identity for fear of scaring off...</p></blockquote>
+		<p><a href="http://foodsense.is/blog/whats-a-vegan-baker-to-do">Continue reading &raquo;</a></p>	</div>
+		
+	<footer>
+		<ul>
+			<li class="date"><time datetime="2011-10-24T07:57-05:00" pubdate><span>2011</span> <em>Oct 24</em></time></li>
+			<li class="comments"><a href="http://foodsense.is/blog/whats-a-vegan-baker-to-do#disqus_thread" data-disqus-identifier="169">Leave a comment</a></li>
+			<li class="tags"><a href="#">Cook</a> <a href="#">Read</a> </li>
+		</ul>
+	</footer>
+</article>
+	
+
+
+
+<article>
+	<header>
+	<h1><a href="http://foodsense.is/blog/a-vegan-dinner-party-for-autumn">A Vegan Dinner Party for Autumn</a></h1>
+		</header>
+		
+	<div class="group">
+		<img src="http://foodsense.is/uploads/post-images/MeatlessDinnerParty_blog.jpg" class="post-image border" alt="image" />			<p>&#8220;Warm, welcoming and meatless&#8221; is how <a href="http://nytimes.com">The New York Times</a> headlined this lovely piece and dinner party menu in its Dining and Wine section. After marrying her vegan husband, writer and occasional-vegetarian Melissa Clark has been using less cream and cheese in her meal. In her own words,</p><blockquote><p>Surprisingly, the longer I have done without the cheese and cream, the less I’ve missed them — and the more creative and interesting those meals have become.</p>
+</blockquote>
+		<p><a href="http://foodsense.is/blog/a-vegan-dinner-party-for-autumn">Continue reading &raquo;</a></p>	</div>
+		
+	<footer>
+		<ul>
+			<li class="date"><time datetime="2011-10-18T06:00-05:00" pubdate><span>2011</span> <em>Oct 18</em></time></li>
+			<li class="comments"><a href="http://foodsense.is/blog/a-vegan-dinner-party-for-autumn#disqus_thread" data-disqus-identifier="167">Leave a comment</a></li>
+			<li class="tags"><a href="#">Cook</a> <a href="#">Read</a> </li>
+		</ul>
+	</footer>
+</article>
+	
+
+
+
+<article>
+	<header>
+	<h1><a href="http://foodsense.is/blog/a-vegan-in-paris">A Vegan in Paris</a></h1>
+		</header>
+		
+	<div class="group">
+		<img src="http://foodsense.is/uploads/post-images/VoyAlimento_blog.jpg" class="post-image border" alt="image" />			<p>The author of this piece makes it clear that she&#8217;s not going to give up meat anytime soon. But, she also says,</p><blockquote><p>I find myself eating more and more vegetarian.</p>
+</blockquote><p> </p>
+
+<p>I love people like this. They&#8217;re open-minded, they appreciate what a vegetarian or vegan diet does for the body, they&#8217;re honest, and they know good food when they taste it - which is why they have no problem saying things like:</p>
+		<p><a href="http://foodsense.is/blog/a-vegan-in-paris">Continue reading &raquo;</a></p>	</div>
+		
+	<footer>
+		<ul>
+			<li class="date"><time datetime="2011-10-13T07:44-05:00" pubdate><span>2011</span> <em>Oct 13</em></time></li>
+			<li class="comments"><a href="http://foodsense.is/blog/a-vegan-in-paris#disqus_thread" data-disqus-identifier="161">Leave a comment</a></li>
+			<li class="tags"><a href="#">Know</a> <a href="#">Read</a> </li>
+		</ul>
+	</footer>
+</article>
+	
+
+
+
+<article>
+	<header>
+	<h1><a href="http://foodsense.is/blog/hannah-kaminskys-ten-things">Hannah Kaminsky&#8217;s Ten Things</a></h1>
+	<h2>Ten Things That Make Me Happy</h2>	</header>
+		
+	<div class="group">
+		<img src="http://foodsense.is/uploads/post-images/RedPepperSoup_blog.jpg" class="post-image border" alt="image" />			<p><em>I always get recommendations from friends. (Ok, fine - and <a href="http://yelp.com">Yelp</a>.) I also love discovering new things from some of my favorite bloggers, cookbook authors, and business owners. So, I&#8217;m excited and proud to share a new weekly series: <strong>10 Things That Make Me Happy</strong>, which will bring us into the lives of some of our favorite personalities.</em><br />
+<br></p>
+
+<div class="img-wrap left"><img src="http://foodsense.is/uploads/blog/Hannah.jpg" alt="" height="300" width="200"  /><span class="caption"><a href=""></a></span></div>
+<p><strong>Who</strong>: Hannah Kaminsky</p>
+
+<p><strong>Where</strong>: Fairfield, Connecticut</p>
+
+<p><strong>What</strong>: Baker, writer, photographer, and creator of the award-winning blog <a href="http://bittersweetblog.wordpress.com/">Bittersweet</a>, Hannah is also the author of two cookbooks, including the most recently released, <a href="http://www.amazon.com/gp/product/1616082208/ref=as_li_ss_tl?ie=UTF8&amp;tag=thvepo-20&amp;linkCode=as2&amp;camp=217145&amp;creative=399373&amp;creativeASIN=1616082208">Vegan Desserts:...</a></p>
+		<p><a href="http://foodsense.is/blog/hannah-kaminskys-ten-things">Continue reading &raquo;</a></p>	</div>
+		
+	<footer>
+		<ul>
+			<li class="date"><time datetime="2011-09-14T06:00-05:00" pubdate><span>2011</span> <em>Sep 14</em></time></li>
+			<li class="comments"><a href="http://foodsense.is/blog/hannah-kaminskys-ten-things#disqus_thread" data-disqus-identifier="140">Leave a comment</a></li>
+			<li class="tags"><a href="#">Read</a> <a href="#">Shop</a> <a href="#">Ten Things</a> </li>
+		</ul>
+	</footer>
+</article>
+	
+
+
+
+<article>
+	<header>
+	<h1><a href="http://foodsense.is/blog/touring-a-chefs-kitchen-meeting-a-freegan-and-cooking-in-a-dorm-room">Touring a Chef&#8217;s Kitchen, Meeting a &#8220;Freegan&#8221;, and Cooking in a Dorm Room</a></h1>
+	<h2>This Week on Food Sense</h2>	</header>
+		
+	<div class="group">
+					<p><img src="http://foodsense.is/uploads/blog/2011-09-09.jpg" alt="" height="572" width="800"  /></p>
+
+<p>Tomorrow evening, I&#8217;m hosting my first dinner party as a grad student.</p>
+		<p><a href="http://foodsense.is/blog/touring-a-chefs-kitchen-meeting-a-freegan-and-cooking-in-a-dorm-room">Continue reading &raquo;</a></p>	</div>
+		
+	<footer>
+		<ul>
+			<li class="date"><time datetime="2011-09-09T05:01-05:00" pubdate><span>2011</span> <em>Sep 09</em></time></li>
+			<li class="comments"><a href="http://foodsense.is/blog/touring-a-chefs-kitchen-meeting-a-freegan-and-cooking-in-a-dorm-room#disqus_thread" data-disqus-identifier="136">Leave a comment</a></li>
+			<li class="tags"><a href="#">Know</a> <a href="#">Read</a> </li>
+		</ul>
+	</footer>
+</article>
+	
+
+
+
+<article>
+	<header>
+	<h1><a href="http://foodsense.is/blog/the-kitchn-visits-ann-gentrys-kitchen">Tour Chef Ann Gentry&#8217;s Los Angeles Kitchen</a></h1>
+		</header>
+		
+	<div class="group">
+		<img src="http://foodsense.is/uploads/post-images/AnnGentryKitchen_Blog.jpg" class="post-image border" alt="image" />			<p>Have you ever wanted to take a tour of a chef&#8217;s home kitchen?</p>
+
+<p>Well, today, you can, through a slideshow by <a href="http://thekitchn.com">the kitchn</a>. Writer and photographer <a href="http://bethanynauert.com/">Bethany Nauert</a> takes readers inside the warm, cozy, and wishlist-worthy kitchen of leading vegan chef, <a href="http://www.realfood.com/about/ann-gentry-founder">Ann Gentry</a>.</p>
+		<p><a href="http://foodsense.is/blog/the-kitchn-visits-ann-gentrys-kitchen">Continue reading &raquo;</a></p>	</div>
+		
+	<footer>
+		<ul>
+			<li class="date"><time datetime="2011-09-06T04:44-05:00" pubdate><span>2011</span> <em>Sep 06</em></time></li>
+			<li class="comments"><a href="http://foodsense.is/blog/the-kitchn-visits-ann-gentrys-kitchen#disqus_thread" data-disqus-identifier="128">Leave a comment</a></li>
+			<li class="tags"><a href="#">Cook</a> <a href="#">Read</a> </li>
+		</ul>
+	</footer>
+</article>
+	
+
+
+
+<article>
+	<header>
+	<h1><a href="http://foodsense.is/blog/creative-takes-on-hummus-vegan-sloppy-joes-and-hope-for-a-non-veg-boyfriend">Creative Takes on Hummus, Vegan Sloppy Joes, and Hope for a Non-Veg Boyfriend</a></h1>
+	<h2>This Week on Food Sense</h2>	</header>
+		
+	<div class="group">
+					<div class="img-wrap "><p><img src="http://foodsense.is/uploads/blog/2011-08-25BlogCollage.jpg" alt="" height="500" width="700"  /><br />
+<span class="caption"><a href="http://"></a></span></p>
+</div>
+
+<p>I didn&#8217;t cook much last weekend. It was just one of those weekends - I was out with family, caught up in chores, spending a chunk of time studying, and then packing for a retreat in the Catskills. Before I knew it, it was midnight on Sunday, and I was setting my alarm for 5 AM.</p>
+
+<p>So, going into Friday and another weekend, I am looking forward to a slightly slower pace - one that will allow me to get out to the farmer&#8217;s market and the grocery store, and get the ingredients I need to try out some of our freshest additions to Tastemakers.</p>
+		<p><a href="http://foodsense.is/blog/creative-takes-on-hummus-vegan-sloppy-joes-and-hope-for-a-non-veg-boyfriend">Continue reading &raquo;</a></p>	</div>
+		
+	<footer>
+		<ul>
+			<li class="date"><time datetime="2011-08-26T06:00-05:00" pubdate><span>2011</span> <em>Aug 26</em></time></li>
+			<li class="comments"><a href="http://foodsense.is/blog/creative-takes-on-hummus-vegan-sloppy-joes-and-hope-for-a-non-veg-boyfriend#disqus_thread" data-disqus-identifier="113">Leave a comment</a></li>
+			<li class="tags"><a href="#">Know</a> <a href="#">Read</a> </li>
+		</ul>
+	</footer>
+</article>
+	
+
+
+
+<article>
+	<header>
+	<h1><a href="http://foodsense.is/blog/whats-wrong-with-vegan-meat">What&#8217;s wrong with vegan meat?</a></h1>
+		</header>
+		
+	<div class="group">
+					<p>David Sirota dreads the day his 8-month-old son will grow up to ask him about meat - he is not sure that he is going to be able to explain what&#8217;s wrong with it, not when, </p>
+
+<blockquote><p>the vegetarian aisle subliminally glorifies meat-eating.</p>
+</blockquote>
+
+<p>While many of these meat substitutes ease the transition to a plant-based diet, and are even enjoyed by some long-time vegans for their heartiness and taste, Sirota worries that,</p>
+
+<blockquote><p>It teaches them that as tasty as vegetarian food may be, it can never compete with the &#8220;real thing.&#8221;</p>
+</blockquote>
+		<p><a href="http://foodsense.is/blog/whats-wrong-with-vegan-meat">Continue reading &raquo;</a></p>	</div>
+		
+	<footer>
+		<ul>
+			<li class="date"><time datetime="2011-08-24T07:00-05:00" pubdate><span>2011</span> <em>Aug 24</em></time></li>
+			<li class="comments"><a href="http://foodsense.is/blog/whats-wrong-with-vegan-meat#disqus_thread" data-disqus-identifier="109">Leave a comment</a></li>
+			<li class="tags"><a href="#">Know</a> <a href="#">Read</a> </li>
+		</ul>
+	</footer>
+</article>
+	
+
+
+<div id="pagination">
+
+	<span class="hide">|</span> 
+
+	<a href="http://foodsense.is/blog/show/category/read/P8" class="button older">Older Entries &raquo;</a>
+
+</div>
+
+</section><!-- /#main -->
+
+<aside role="sub">
+
+	<div class="rss"><a href="http://feeds.feedburner.com/foodsense-blog">Subscribe via RSS</a> <a href="http://foodsense.is/rss" title="RSS?">?</a></div>
+	
+	<h4 class="clear">Categories</h4>
+	<ul id="nav_categories" class="nav_categories">
+	<li>
+	<a href="http://foodsense.is/blog/show/category/cook">Cook</a>
+	</li>
+	<li>
+	<a href="http://foodsense.is/blog/show/category/dine">Dine</a>
+	</li>
+	<li>
+	<a href="http://foodsense.is/blog/show/category/events">Events</a>
+	</li>
+	<li>
+	<a href="http://foodsense.is/blog/show/category/know">Know</a>
+	</li>
+	<li>
+	<a href="http://foodsense.is/blog/show/category/monologues">Monologues</a>
+	</li>
+	<li>
+	<a href="http://foodsense.is/blog/show/category/my-veg-life">My Veg Life</a>
+	</li>
+	<li>
+	<a href="http://foodsense.is/blog/show/category/read">Read</a>
+	</li>
+	<li>
+	<a href="http://foodsense.is/blog/show/category/shop">Shop</a>
+	</li>
+	<li>
+	<a href="http://foodsense.is/blog/show/category/ten-things">Ten Things</a>
+	</li>
+</ul>
+
+	
+	<div class="search">
+<form method="post" action="http://foodsense.is/"  >
+<div class='hiddenFields'>
+<input type="hidden" name="ACT" value="2" />
+<input type="hidden" name="XID" value="e1d7fb240cd6dfa5b92694bb062ec3897ec5c5dc" />
+<input type="hidden" name="RES" value="" />
+<input type="hidden" name="meta" value="jec6YFsZsEvGcQX6UhAJUir6IAa0dT1jTsjJQc/irYiVQ5/Jt5UGLwO+jGZ6YhALFwA7xJTUXVzSHhg7rfld4KSZnyozhoMFC82qw5uQ/XAZdKaWjbOMXhV+hOvvodCwJmBqByhCp9ByRUGDvFFIPh7ryzBv+neCFiZc+/DxzkvIdmps19Zv/3SxgqVnr+hORj9mmbpsv3UPKEkQZcrMWyhOhrV1KFGSSilD7i/9+zuCAfK8A3YmYqcHKDiElnMW48vaEStKL6M9aa/Ad13t0myjn0MK4LjtcOTzTON+J2alU+UPeY4DR475Bhk3DL7jXmu55HpFT0LMO3yFK4JuXEzwGoeKLm6cddcuYltWouZyGM/JWtClXBnHen/Z4/c6" />
+<input type="hidden" name="site_id" value="1" />
+</div>
+
+
+	<form action="/">
+		<fieldset>
+			<label for="search" class="hide">Search</label>
+			<input type="search" class="text" name="keywords" id="keywords" placeholder="Search" />
+		</fieldset>
+		<fieldset class="submit">
+			<input type="submit" value="Go" />
+		</fieldset>
+	</form>
+</form>
+</div>
+	
+	<h4>Archives</h4>
+	<ul>
+	<li><a href="http://foodsense.is/blog/archives/2012/02">February 2012</a></li>
+<li><a href="http://foodsense.is/blog/archives/2012/01">January 2012</a></li>
+<li><a href="http://foodsense.is/blog/archives/2011/12">December 2011</a></li>
+<li><a href="http://foodsense.is/blog/archives/2011/11">November 2011</a></li>
+<li><a href="http://foodsense.is/blog/archives/2011/10">October 2011</a></li>
+<li><a href="http://foodsense.is/blog/archives/2011/09">September 2011</a></li>
+<li><a href="http://foodsense.is/blog/archives/2011/08">August 2011</a></li>
+<li><a href="http://foodsense.is/blog/archives/2011/07">July 2011</a></li>
+<li><a href="http://foodsense.is/blog/archives/2011/06">June 2011</a></li>
+<li><a href="http://foodsense.is/blog/archives/2011/05">May 2011</a></li>
+
+	</ul>
+	
+	
+<h4>Food Sense Weekly Newsletter</h4>
+<p>
+	Sign up for our newsletter to receive a handpicked selection of the best stories, recipes, and news, delivered weekly to your inbox.</p>
+
+
+<form action="http://thevegpost.us2.list-manage1.com/subscribe/post?u=be2c472e2e43f8735d9666407&amp;id=83098190d4" method="post" class="newsletter" name="mc-embedded-subscribe-form">
+	<fieldset>
+		<label for="email" class="hide">Email</label>
+		<input type="email" id="email" name="EMAIL" placeholder="Email" />
+	</fieldset>
+	<fieldset class="submit">
+		<input type="submit" value="Subscribe" name="subscribe" />
+	</fieldset>
+</form>
+
+</aside>
+
+</div><!-- END #content -->
+
+<aside role="social">
+	<section class="twitter"> 
+		<h1>Latest Tweet</h1>
+		
+		<p class="tweet">"because it's a great week for red velvet cupcakes, via <a title='The Tolerant Vegan' href='http://twitter.com/tolerantvegan'>@tolerantvegan</a>: <a title='http://ow.ly/92eyx' href='http://t.co/BljaqozN'>http://t.co/BljaqozN</a>"</p>
+		
+		<p><a href="http://twitter.com/getfoodsense" class="button">Join the Conversation</a></p>
+	</section> 
+	<section class="facebook">
+		<h1>Let's be friends!</h1>
+		<p>For weekly finds, community recommendations, and more, like us on Facebook.</p>
+		<p><a href="http://www.facebook.com/getfoodsense" class="button">Join the Community</a></p>
+	</div>
+</aside><!-- /aside -->
+
+<footer role="siteinfo">
+	<p><a href="http://foodsense.is/legal">Privacy Policy</a> | <a href="http://foodsense.is/legal#terms">Terms of Use</a> | <span id='eeEncEmail_wcYczoLAhH'>.(JavaScript must be enabled to view this email address)</span><script type="text/javascript">/*<![CDATA[*/var l=new Array();var output = '';l[0]='>';l[1]='a';l[2]='/';l[3]='<';l[4]=' 116';l[5]=' 99';l[6]=' 97';l[7]=' 116';l[8]=' 110';l[9]=' 111';l[10]=' 67';l[11]='>';l[12]='\"';l[13]=' 115';l[14]=' 105';l[15]=' 46';l[16]=' 101';l[17]=' 115';l[18]=' 110';l[19]=' 101';l[20]=' 115';l[21]=' 100';l[22]=' 111';l[23]=' 111';l[24]=' 102';l[25]=' 64';l[26]=' 111';l[27]=' 108';l[28]=' 108';l[29]=' 101';l[30]=' 104';l[31]=':';l[32]='o';l[33]='t';l[34]='l';l[35]='i';l[36]='a';l[37]='m';l[38]='\"';l[39]='=';l[40]='f';l[41]='e';l[42]='r';l[43]='h';l[44]='a ';l[45]='<';for (var i = l.length-1; i >= 0; i=i-1){ if (l[i].substring(0, 1) == ' ') output += "&#"+unescape(l[i].substring(1))+";"; else output += unescape(l[i]);}document.getElementById('eeEncEmail_wcYczoLAhH').innerHTML = output;/*]]>*/</script><br />&copy; 2012 Food Sense, all rights reserved.</p>
+	<div class="social">
+		<ul>
+			<li class="twitter"><a href="http://twitter.com/getfoodsense">Twitter</a></li>
+			<li class="facebook"><a href="http://www.facebook.com/getfoodsense">Facebook</a></li>
+			<li class="rss"><a href="http://foodsense.is/rss">Subscribe via RSS</a></li>
+		</ul>
+	</div>
+</footer>
+
+</div><!-- /#wrap -->
+
+
+<!-- ANALYTICS -->
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-23993951-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<!-- DISQUS COMMENT COUNT -->
+<script type="text/javascript">
+    var disqus_shortname = 'foodsense'; 
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+		
+</body>
+	
+</html>

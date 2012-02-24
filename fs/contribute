@@ -1,0 +1,179 @@
+<!doctype html>
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+<title>Food Sense | Contribute</title>
+<meta name="description" content="Food Sense is created by a community of thoughtful, food-loving eaters and home cooks who have a palate for plant-based eating - for themselves or their loved ones; three days a week, or every day of the year. We want to hear from you!" />
+<meta name="author" content="Julie Shah Lamba" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+<!-- CSS -->
+<link rel="stylesheet" media="screen, print" href="/-/css/basic.css" />
+<!--[if gte IE 7]><!-->
+<link rel="stylesheet" media="screen" href="/-/css/screen.css" />
+<!--<![endif]-->
+
+<link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">	
+
+<!-- SCRIPTS -->
+<script type="text/javascript" src="http://use.typekit.com/shn5sjh.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.js"></script>
+<script>!window.jQuery && document.write(unescape('%3Cscript src="/-/js/jquery-1.6.1.js"%3E%3C/script%3E'))</script>
+<!-- enable HTML5 elements in IE7+8 --> 
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<script src="/-/js/selectivizr.js"></script>
+<![endif]--> 
+<script type="text/javascript" src="/-/js/scripts.js"></script>
+
+</head>
+	
+<body id="contribute-page">
+
+<div id="wrap">
+
+<header role="masthead">
+	<h1 id="branding"><a href="/" title="Home">Food Sense</a></h1>
+	<nav>
+		<ul>
+			<li id="t-tastemakers"><a href="http://foodsense.is/tastemakers">Tastemakers</a></li>
+			<li id="t-blog"><a href="http://foodsense.is/blog">Blog</a></li>
+			<li id="t-vendors"><a href="http://foodsense.is/a-list">The A-List</a></li>
+			<li id="t-contribute"><a href="http://foodsense.is/contribute">Contribute</a></li>
+			<li id="t-about"><a href="http://foodsense.is/about">About</a></li>
+		</ul>
+	</nav>
+</header>
+
+<div id="content" class="page">
+
+<header role="page">
+	<h1 class="contribute icon">Contribute</h1>
+	<p>Food Sense is created by a community of thoughtful, food-loving eaters and home cooks who have a palate for plant-based eating - for themselves or their loved ones; three days a week, or every day of the year.</p>
+
+<p><strong>We want to hear from you!</strong></p>
+</header>
+
+<section id="main">
+	<h3>Submit a Recipe to the Tastemakers Gallery:</h3>
+
+<p>Food Sense readers love cooking and eating really good food. Snag a spot in our Tastemakers Gallery for your dependably delicious creations, and help us all continue to share and spread that love.</p>
+
+<p><a href="http://foodsense.wufoo.com/forms/become-a-tastemaker/">Submit a recipe.</a></p>
+
+<p><small><strong>The fine print:</strong> A spot in the Tastemakers Gallery includes a photo, short description of your recipe, and a link back to your original post. Food Sense will always credit your photos and recipes. You are welcome to submit more than one recipe to the Gallery, and to return back here in the future to submit new recipes. However, in the interest of giving our readers the very best, please note that Food Sense reserves the right to test and select which recipes will be posted to the site.</small></p>
+
+<h3>Get Interviewed for our Monologues series:</h3>
+
+<p>The Food Sense Monologues series is a collection of voices, each sharing a distinct journey to a plant-based lifestyle, and each inspiring others.</p>
+
+<p><em>When and why did you make the switch? What&#8217;s been challenging, and how have you dealt with those challenges? How do you share Thanksgiving with your family? What do you eat when you take important clients out to dinner? What did you eat for lunch today?</em></p>
+
+<p>Add your story to our collection. <a href="http://foodsense.wufoo.com/forms/get-interviewed-for-food-sense-monologues/">Submit an interview request.</a></p>
+
+<h3>Apply to Join The A-List:</h3>
+
+<p>The Food Sense A-List is a thoughtfully curated collection of favorite vendors and is designed to give our readers the very best of a plant-based lifestyle. The A-List offers readers a worry-free consumer experience with handpicked products and companies. All of our A-List vendors enjoy an exclusive showcase that affirms a collective commitment to quality.</p>
+
+<p>We look forward to considering your company for inclusion on our List. <a href="http://foodsense.wufoo.com/forms/join-the-food-sense-alist/">Submit an application.</a></p>
+
+<h3>Write for the Food Sense Blog:</h3><p> </p>
+
+<p>We welcome guest posts by bloggers and writers from around the world. Send us an e-mail at <span id='eeEncEmail_FCHuaqYoYE'>.(JavaScript must be enabled to view this email address)</span><script type="text/javascript">/*<![CDATA[*/var l=new Array();var output = '';l[0]='>';l[1]='a';l[2]='/';l[3]='<';l[4]=' 115';l[5]=' 105';l[6]=' 46';l[7]=' 101';l[8]=' 115';l[9]=' 110';l[10]=' 101';l[11]=' 115';l[12]=' 100';l[13]=' 111';l[14]=' 111';l[15]=' 102';l[16]=' 64';l[17]=' 111';l[18]=' 108';l[19]=' 108';l[20]=' 101';l[21]=' 104';l[22]='>';l[23]='\"';l[24]=' 115';l[25]=' 105';l[26]=' 46';l[27]=' 101';l[28]=' 115';l[29]=' 110';l[30]=' 101';l[31]=' 115';l[32]=' 100';l[33]=' 111';l[34]=' 111';l[35]=' 102';l[36]=' 64';l[37]=' 111';l[38]=' 108';l[39]=' 108';l[40]=' 101';l[41]=' 104';l[42]=':';l[43]='o';l[44]='t';l[45]='l';l[46]='i';l[47]='a';l[48]='m';l[49]='\"';l[50]='=';l[51]='f';l[52]='e';l[53]='r';l[54]='h';l[55]='a ';l[56]='<';for (var i = l.length-1; i >= 0; i=i-1){ if (l[i].substring(0, 1) == ' ') output += "&#"+unescape(l[i].substring(1))+";"; else output += unescape(l[i]);}document.getElementById('eeEncEmail_FCHuaqYoYE').innerHTML = output;/*]]>*/</script> with “Proposal for guest post” as your subject line. In the body of your e-mail, please provide a summary of your proposed guest post and two samples of your writing (as attached documents or links to your other work on the web).</p>
+
+<p>We are also looking for regular contributors to the Food Sense blog who can provide a specific and continually engaging perspective on eating and enjoying a plant-based diet. </p>
+
+<p>Perhaps you’re a vegan parent and can share a weekly perspective on what it’s like to cook and eat in your home? Maybe you’re someone who dines out regularly in New York City and can share your experiences with our readers? Perhaps you’re cooking your way through a specific cookbook and want to share your experiences and photos with our readers? </p>
+
+<p>Whatever your point of view, if you’re interested in writing for us, we’d love to hear from you. Send us an e-mail at <span id='eeEncEmail_XMHIAqqEmZ'>.(JavaScript must be enabled to view this email address)</span><script type="text/javascript">/*<![CDATA[*/var l=new Array();var output = '';l[0]='>';l[1]='a';l[2]='/';l[3]='<';l[4]=' 115';l[5]=' 105';l[6]=' 46';l[7]=' 101';l[8]=' 115';l[9]=' 110';l[10]=' 101';l[11]=' 115';l[12]=' 100';l[13]=' 111';l[14]=' 111';l[15]=' 102';l[16]=' 64';l[17]=' 111';l[18]=' 108';l[19]=' 108';l[20]=' 101';l[21]=' 104';l[22]='>';l[23]='\"';l[24]=' 115';l[25]=' 105';l[26]=' 46';l[27]=' 101';l[28]=' 115';l[29]=' 110';l[30]=' 101';l[31]=' 115';l[32]=' 100';l[33]=' 111';l[34]=' 111';l[35]=' 102';l[36]=' 64';l[37]=' 111';l[38]=' 108';l[39]=' 108';l[40]=' 101';l[41]=' 104';l[42]=':';l[43]='o';l[44]='t';l[45]='l';l[46]='i';l[47]='a';l[48]='m';l[49]='\"';l[50]='=';l[51]='f';l[52]='e';l[53]='r';l[54]='h';l[55]='a ';l[56]='<';for (var i = l.length-1; i >= 0; i=i-1){ if (l[i].substring(0, 1) == ' ') output += "&#"+unescape(l[i].substring(1))+";"; else output += unescape(l[i]);}document.getElementById('eeEncEmail_XMHIAqqEmZ').innerHTML = output;/*]]>*/</script> with “Proposal for Food Sense column” as your subject line. In the body of your e-mail, please tell us what you’d like to write about. Also provide two samples of your writing (as attached documents, or links to your other work on the web). One of these writing samples should be a draft first post for your proposed column.</p>
+
+<p>We will read every submission that we get. You’ll hear back from us within a week.</p>
+
+</section><!-- /#main -->
+
+<aside role="sub">
+	
+<h4>Contact</h4>
+<p>
+	Share your tips. Contribute to our blog. Tell us what you think: E-mail us at <span id='eeEncEmail_DxRDCJgHaR'>.(JavaScript must be enabled to view this email address)</span><script type="text/javascript">/*<![CDATA[*/var l=new Array();var output = '';l[0]='>';l[1]='a';l[2]='/';l[3]='<';l[4]=' 115';l[5]=' 105';l[6]=' 46';l[7]=' 101';l[8]=' 115';l[9]=' 110';l[10]=' 101';l[11]=' 115';l[12]=' 100';l[13]=' 111';l[14]=' 111';l[15]=' 102';l[16]=' 64';l[17]=' 111';l[18]=' 108';l[19]=' 108';l[20]=' 101';l[21]=' 104';l[22]='>';l[23]='\"';l[24]=' 115';l[25]=' 105';l[26]=' 46';l[27]=' 101';l[28]=' 115';l[29]=' 110';l[30]=' 101';l[31]=' 115';l[32]=' 100';l[33]=' 111';l[34]=' 111';l[35]=' 102';l[36]=' 64';l[37]=' 111';l[38]=' 108';l[39]=' 108';l[40]=' 101';l[41]=' 104';l[42]=':';l[43]='o';l[44]='t';l[45]='l';l[46]='i';l[47]='a';l[48]='m';l[49]='\"';l[50]='=';l[51]='f';l[52]='e';l[53]='r';l[54]='h';l[55]='a ';l[56]='<';for (var i = l.length-1; i >= 0; i=i-1){ if (l[i].substring(0, 1) == ' ') output += "&#"+unescape(l[i].substring(1))+";"; else output += unescape(l[i]);}document.getElementById('eeEncEmail_DxRDCJgHaR').innerHTML = output;/*]]>*/</script>.&nbsp;</p>
+<p>
+	You can also follow us on Twitter (<a href="http://twitter.com/getfoodsense">@getfoodsense</a>) or connect with us on <a href="http://www.facebook.com/pages/Food-Sense/189915071057265" target="_blank">Facebook</a>.</p>
+
+
+	
+	<h4>FAQs</h4>
+	<p>
+	You have questions, we have answers. <a href="http://foodsense.is/faqs/">View our frequently asked questions &raquo;</a></p>
+
+
+	
+<h4>Food Sense Weekly Newsletter</h4>
+<p>
+	Sign up for our newsletter to receive a handpicked selection of the best stories, recipes, and news, delivered weekly to your inbox.</p>
+
+
+<form action="http://thevegpost.us2.list-manage1.com/subscribe/post?u=be2c472e2e43f8735d9666407&amp;id=83098190d4" method="post" class="newsletter" name="mc-embedded-subscribe-form">
+	<fieldset>
+		<label for="email" class="hide">Email</label>
+		<input type="email" id="email" name="EMAIL" placeholder="Email" />
+	</fieldset>
+	<fieldset class="submit">
+		<input type="submit" value="Subscribe" name="subscribe" />
+	</fieldset>
+</form>
+</aside>
+
+</div><!-- /#content -->
+
+<aside role="social">
+	<section class="twitter"> 
+		<h1>Latest Tweet</h1>
+		
+		<p class="tweet">"because it's a great week for red velvet cupcakes, via <a title='The Tolerant Vegan' href='http://twitter.com/tolerantvegan'>@tolerantvegan</a>: <a title='http://ow.ly/92eyx' href='http://t.co/BljaqozN'>http://t.co/BljaqozN</a>"</p>
+		
+		<p><a href="http://twitter.com/getfoodsense" class="button">Join the Conversation</a></p>
+	</section> 
+	<section class="facebook">
+		<h1>Let's be friends!</h1>
+		<p>For weekly finds, community recommendations, and more, like us on Facebook.</p>
+		<p><a href="http://www.facebook.com/getfoodsense" class="button">Join the Community</a></p>
+	</div>
+</aside><!-- /aside -->
+
+<footer role="siteinfo">
+	<p><a href="http://foodsense.is/legal">Privacy Policy</a> | <a href="http://foodsense.is/legal#terms">Terms of Use</a> | <span id='eeEncEmail_noUCQltAxg'>.(JavaScript must be enabled to view this email address)</span><script type="text/javascript">/*<![CDATA[*/var l=new Array();var output = '';l[0]='>';l[1]='a';l[2]='/';l[3]='<';l[4]=' 116';l[5]=' 99';l[6]=' 97';l[7]=' 116';l[8]=' 110';l[9]=' 111';l[10]=' 67';l[11]='>';l[12]='\"';l[13]=' 115';l[14]=' 105';l[15]=' 46';l[16]=' 101';l[17]=' 115';l[18]=' 110';l[19]=' 101';l[20]=' 115';l[21]=' 100';l[22]=' 111';l[23]=' 111';l[24]=' 102';l[25]=' 64';l[26]=' 111';l[27]=' 108';l[28]=' 108';l[29]=' 101';l[30]=' 104';l[31]=':';l[32]='o';l[33]='t';l[34]='l';l[35]='i';l[36]='a';l[37]='m';l[38]='\"';l[39]='=';l[40]='f';l[41]='e';l[42]='r';l[43]='h';l[44]='a ';l[45]='<';for (var i = l.length-1; i >= 0; i=i-1){ if (l[i].substring(0, 1) == ' ') output += "&#"+unescape(l[i].substring(1))+";"; else output += unescape(l[i]);}document.getElementById('eeEncEmail_noUCQltAxg').innerHTML = output;/*]]>*/</script><br />&copy; 2012 Food Sense, all rights reserved.</p>
+	<div class="social">
+		<ul>
+			<li class="twitter"><a href="http://twitter.com/getfoodsense">Twitter</a></li>
+			<li class="facebook"><a href="http://www.facebook.com/getfoodsense">Facebook</a></li>
+			<li class="rss"><a href="http://foodsense.is/rss">Subscribe via RSS</a></li>
+		</ul>
+	</div>
+</footer>
+
+</div><!-- /#wrap -->
+
+
+<!-- ANALYTICS -->
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-23993951-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+		
+</body>
+	
+</html>

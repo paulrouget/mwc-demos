@@ -1,0 +1,439 @@
+<!doctype html>
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+<title>Food Sense | Monologues</title>
+<meta name="author" content="Julie Shah Lamba" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/foodsense-blog" />
+
+<!-- CSS -->
+<link rel="stylesheet" media="screen, print" href="/-/css/basic.css" />
+<!--[if gte IE 7]><!-->
+<link rel="stylesheet" media="screen" href="/-/css/screen.css" />
+<!--<![endif]-->
+
+<link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">	
+
+<!-- SCRIPTS -->
+<script type="text/javascript" src="http://use.typekit.com/shn5sjh.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.js"></script>
+<script>!window.jQuery && document.write(unescape('%3Cscript src="/-/js/jquery-1.6.1.js"%3E%3C/script%3E'))</script>
+<!-- enable HTML5 elements in IE7+8 --> 
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<script src="/-/js/selectivizr.js"></script>
+<![endif]--> 
+<script type="text/javascript" src="/-/js/scripts.js"></script>
+
+<script src="/-/js/jquery.fitvids.js"></script>
+<script>
+  $(document).ready(function(){$(".video").fitVids();});
+</script>
+
+</head>
+	
+<body id="blog-category">
+
+<div id="wrap">
+
+<header role="masthead">
+	<h1 id="branding"><a href="/" title="Home">Food Sense</a></h1>
+	<nav>
+		<ul>
+			<li id="t-tastemakers"><a href="http://foodsense.is/tastemakers">Tastemakers</a></li>
+			<li id="t-blog"><a href="http://foodsense.is/blog">Blog</a></li>
+			<li id="t-vendors"><a href="http://foodsense.is/a-list">The A-List</a></li>
+			<li id="t-contribute"><a href="http://foodsense.is/contribute">Contribute</a></li>
+			<li id="t-about"><a href="http://foodsense.is/about">About</a></li>
+		</ul>
+	</nav>
+</header>
+
+<div id="content" class="blog post multiple">
+
+<header role="page">
+	<h1 class="">Monologues</h1>
+	<p>Displaying all entries labeled "Monologues".</p>
+
+	<form id="dropdown" name="catmenu" action="">
+		<select name="selcat" onchange="location=document.catmenu.selcat.options[document.catmenu.selcat.selectedIndex].value;">
+			<option value="">Select Category</option>
+			
+			<option value="http://foodsense.is/blog/show/category/cook">Cook</option>
+			
+			<option value="http://foodsense.is/blog/show/category/dine">Dine</option>
+			
+			<option value="http://foodsense.is/blog/show/category/events">Events</option>
+			
+			<option value="http://foodsense.is/blog/show/category/know">Know</option>
+			
+			<option value="http://foodsense.is/blog/show/category/monologues">Monologues</option>
+			
+			<option value="http://foodsense.is/blog/show/category/my-veg-life">My Veg Life</option>
+			
+			<option value="http://foodsense.is/blog/show/category/read">Read</option>
+			
+			<option value="http://foodsense.is/blog/show/category/shop">Shop</option>
+			
+			<option value="http://foodsense.is/blog/show/category/ten-things">Ten Things</option>
+			
+			<option value="http://foodsense.is/blog/show/category/travel">Travel</option>
+			
+ 		</select>
+ 	</form>
+</header>
+	
+<section id="main">
+
+
+<article>
+	<header>
+	<h1><a href="http://foodsense.is/blog/stephanies-monologue">Meet Stephanie: &#8220;While it might sound restrictive, I actually eat so well and feel fantastic.&#8221;</a></h1>
+		</header>
+		
+	<div class="group">
+		<img src="http://foodsense.is/uploads/post-images/Stephanie_Monologue_cropped.jpg" class="post-image border" alt="image" />			<p><em>In 2003, Stephanie got really sick. As she writes on her blog, she was &#8220;off-work-for-six-months sick. Can’t-walk-around-the-block sick.&#8221; Told that there was no treatment for her diagnosis, she gave up sugar, gluten, processed foods, and adopted a plant-based diet. Here, she talks about cooking vegan, sugar- and gluten-free, what happened when she traveled in France, and why she&#8217;s decided to help others by renovating their favorite recipes through her <a href="http://reciperenovator.com/">blog</a>.</em></p>
+		<p><a href="http://foodsense.is/blog/stephanies-monologue">Continue reading &raquo;</a></p>	</div>
+		
+	<footer>
+		<ul>
+			<li class="date"><time datetime="2011-09-19T07:00-05:00" pubdate><span>2011</span> <em>Sep 19</em></time></li>
+			<li class="comments"><a href="http://foodsense.is/blog/stephanies-monologue#disqus_thread" data-disqus-identifier="142">Leave a comment</a></li>
+			<li class="tags"><a href="#">Monologues</a> </li>
+		</ul>
+	</footer>
+</article>
+	
+
+
+
+<article>
+	<header>
+	<h1><a href="http://foodsense.is/blog/kimanhs-monologue">Meet Kimanh: &#8220;I call myself a &#8216;freegan&#8217;...&#8221;</a></h1>
+		</header>
+		
+	<div class="group">
+		<img src="http://foodsense.is/uploads/post-images/Kimanh_Monologue_blog.jpg" class="post-image border" alt="image" />			<p><em>Kimanh grew up loving chicken. Then, at age 15, she had an experience (interestingly, with chicken) that pushed her towards eating less meat - in essence, becoming an accidental vegetarian. Today, she&#8217;s adopted a diet that is 90 - 95% vegan. She shares her love for plant-based cooking, and her brilliant food photos, on her blog, <a href="http://scissorspaperwok.com">Scissors Paper Wok</a>. Here, she talks about eating veg in the UK and Australia, how she&#8217;s dealt with the challenges of a vegan diet, and her recipe for Vietnamese Wraps (complete with a fun video on how to roll them!).</em></p>
+		<p><a href="http://foodsense.is/blog/kimanhs-monologue">Continue reading &raquo;</a></p>	</div>
+		
+	<footer>
+		<ul>
+			<li class="date"><time datetime="2011-09-07T09:00-05:00" pubdate><span>2011</span> <em>Sep 07</em></time></li>
+			<li class="comments"><a href="http://foodsense.is/blog/kimanhs-monologue#disqus_thread" data-disqus-identifier="131">Leave a comment</a></li>
+			<li class="tags"><a href="#">Monologues</a> </li>
+		</ul>
+	</footer>
+</article>
+	
+
+
+
+<article>
+	<header>
+	<h1><a href="http://foodsense.is/blog/recipe-marks-seitan-steaks">Recipe: Mark&#8217;s Seitan Steaks</a></h1>
+		</header>
+		
+	<div class="group">
+					<p>On Wednesday, <a href="http://foodsense.is/blog/marcs-monologue">Marc</a> shared his journey to veganism, along with insight on working in a corporate environment (which often means dining with clients in steakhouses), shopping for professional vegan clothing and accessories, and why changing the way he cooked wasn&#8217;t much of a challenge. He said: </p>
+
+<blockquote><p>Unless a recipe blatantly requires meat, I can pretty much look at any recipe and veganize it - especially with the ingredients that exist today.</p>
+</blockquote>
+
+<p>That evening that we talked, Marc was planning to make one of those veganized dishes - Seitan Steaks. Today, he shares that recipe with...</p>
+		<p><a href="http://foodsense.is/blog/recipe-marks-seitan-steaks">Continue reading &raquo;</a></p>	</div>
+		
+	<footer>
+		<ul>
+			<li class="date"><time datetime="2011-08-05T06:27-05:00" pubdate><span>2011</span> <em>Aug 05</em></time></li>
+			<li class="comments"><a href="http://foodsense.is/blog/recipe-marks-seitan-steaks#disqus_thread" data-disqus-identifier="75">Leave a comment</a></li>
+			<li class="tags"><a href="#">Cook</a> <a href="#">Monologues</a> </li>
+		</ul>
+	</footer>
+</article>
+	
+
+
+
+<article>
+	<header>
+	<h1><a href="http://foodsense.is/blog/marcs-monologue">Meet Marc: &#8220;It&#8217;s not Gucci, but no one looks at me and says, &#8216;That&#8217;s a fake plastic belt.&#8217;&#8221;</a></h1>
+		</header>
+		
+	<div class="group">
+		<img src="http://foodsense.is/uploads/post-images/Marc_cropped.jpg" class="post-image border" alt="image" />			<p><em>Ten years ago, Marc shared an experience with his wife <a href="http://foodsense.is/blog/lynns-monologue">Lynn </a>that encouraged both to adopt a vegetarian, and then a vegan, diet. Here, he talks about handling business dinners at steakhouses, how he shops for professional clothing, and making time to cook on a regular basis. </em></p>
+
+<h4>You live in Baltimore. How long have you been there?</h4>
+
+<p>I’ve lived in Maryland since 1991 - that was actually the first time I lived in the US. My dad was a Foreign Service officer, so I was born in DC, and three weeks after that, we were in Germany. From then on, we lived in a lot of different...</p>
+		<p><a href="http://foodsense.is/blog/marcs-monologue">Continue reading &raquo;</a></p>	</div>
+		
+	<footer>
+		<ul>
+			<li class="date"><time datetime="2011-08-03T07:01-05:00" pubdate><span>2011</span> <em>Aug 03</em></time></li>
+			<li class="comments"><a href="http://foodsense.is/blog/marcs-monologue#disqus_thread" data-disqus-identifier="74">Leave a comment</a></li>
+			<li class="tags"><a href="#">Monologues</a> </li>
+		</ul>
+	</footer>
+</article>
+	
+
+
+
+<article>
+	<header>
+	<h1><a href="http://foodsense.is/blog/recipe-lynns-pumpkin-lasagna">Recipe: Lynn&#8217;s Pumpkin Lasagna</a></h1>
+		</header>
+		
+	<div class="group">
+					<p>Last week, Lynn shared <a href="http://foodsense.is/blog/lynns-monologue">her story</a> with us. Today, she shares one of her absolute favorite recipes - one that she and her husband, Marc, have found, is pleasing to vegans and non-vegans alike.</p>
+		<p><a href="http://foodsense.is/blog/recipe-lynns-pumpkin-lasagna">Continue reading &raquo;</a></p>	</div>
+		
+	<footer>
+		<ul>
+			<li class="date"><time datetime="2011-08-01T07:04-05:00" pubdate><span>2011</span> <em>Aug 01</em></time></li>
+			<li class="comments"><a href="http://foodsense.is/blog/recipe-lynns-pumpkin-lasagna#disqus_thread" data-disqus-identifier="72">Leave a comment</a></li>
+			<li class="tags"><a href="#">Cook</a> <a href="#">Monologues</a> </li>
+		</ul>
+	</footer>
+</article>
+	
+
+
+
+<article>
+	<header>
+	<h1><a href="http://foodsense.is/blog/lynns-monologue">Meet Lynn: &#8220;I can’t change everyone. But, I can tell them what I know.&#8221;</a></h1>
+		</header>
+		
+	<div class="group">
+		<img src="http://foodsense.is/uploads/post-images/Lynn_Butler_Photo.png" class="post-image border" alt="image" />			<p><em>What would a few minutes of driving behind a chicken truck mean for you? For Lynn and her husband, Marc, it planted a seed. A few weeks later, the image was alive in their minds when they confronted the realities of factory farming through a front page <a href="https://www.uta.edu/philosophy/faculty/burgess-jackson/Warrick,%20They%20Die%20Piece%20by%20Piece%20(2001).pdf">article</a> in The Washington Post. They immediately became vegetarian, (and eventually, vegan), and never looked back. Here, Lynn talks about lessons from her work on an animal sanctuary, adjusting to a vegetarian kitchen, and her evolving approach to sharing her choice with others.</em></p>
+		<p><a href="http://foodsense.is/blog/lynns-monologue">Continue reading &raquo;</a></p>	</div>
+		
+	<footer>
+		<ul>
+			<li class="date"><time datetime="2011-07-27T09:00-05:00" pubdate><span>2011</span> <em>Jul 27</em></time></li>
+			<li class="comments"><a href="http://foodsense.is/blog/lynns-monologue#disqus_thread" data-disqus-identifier="68">Leave a comment</a></li>
+			<li class="tags"><a href="#">Monologues</a> </li>
+		</ul>
+	</footer>
+</article>
+	
+
+
+
+<article>
+	<header>
+	<h1><a href="http://foodsense.is/blog/recipe-amys-topopo-salad">Recipe: Amy&#8217;s Topopo Salad</a></h1>
+		</header>
+		
+	<div class="group">
+					<p>Last week, Amy shared <a href="http://foodsense.is/blog/amys-monologue">her journey</a> to a plant-based life with us. Today, she shares a veganized version of her favorite meal, from her favorite restaurant in college - The Topopo Salad from El Azteco. </p>
+
+<p>From Amy:</p><blockquote><p>“Topopo” means volcano, and as prepared at &#8220;El Az&#8221;, this is a huge salad for two people.&nbsp; The Topopo Salad is presented with the salad on top of the nacho base in a big pointed mound (the volcano.)&nbsp; You could add 2.5 oz vegan chicken, if you&#8217;d like.</p>
+</blockquote>
+
+<p>&nbsp;</p>
+		<p><a href="http://foodsense.is/blog/recipe-amys-topopo-salad">Continue reading &raquo;</a></p>	</div>
+		
+	<footer>
+		<ul>
+			<li class="date"><time datetime="2011-07-25T12:30-05:00" pubdate><span>2011</span> <em>Jul 25</em></time></li>
+			<li class="comments"><a href="http://foodsense.is/blog/recipe-amys-topopo-salad#disqus_thread" data-disqus-identifier="64">Leave a comment</a></li>
+			<li class="tags"><a href="#">Cook</a> <a href="#">Monologues</a> </li>
+		</ul>
+	</footer>
+</article>
+	
+
+
+
+<article>
+	<header>
+	<h1><a href="http://foodsense.is/blog/amys-monologue">Meet Amy: &#8220;The world should know, vegans aren&#8217;t starving!&#8221;</a></h1>
+		</header>
+		
+	<div class="group">
+		<img src="http://foodsense.is/uploads/post-images/Amy_Cruice.jpg" class="post-image border" alt="image" />			<p><em>Ten years ago, while working for the ACLU, Amy came to see the operations of the meat industry as a civil rights issue. She became vegetarian, and eventually, after years of battling significant gastrointestinal issues, found a near-immediate cure through veganism. Here, she talks about making sure she doesn&#8217;t trick herself into thinking vegan = healthy, choosing a diet for her dogs, and her approach to hosting non-vegans in her home. </em></p>
+
+<h4>You grew up in the suburbs of Detroit and now work for the ACLU in Maryland. When and where in that journey did you first think about...</h4>
+		<p><a href="http://foodsense.is/blog/amys-monologue">Continue reading &raquo;</a></p>	</div>
+		
+	<footer>
+		<ul>
+			<li class="date"><time datetime="2011-07-20T03:41-05:00" pubdate><span>2011</span> <em>Jul 20</em></time></li>
+			<li class="comments"><a href="http://foodsense.is/blog/amys-monologue#disqus_thread" data-disqus-identifier="59">Leave a comment</a></li>
+			<li class="tags"><a href="#">Monologues</a> </li>
+		</ul>
+	</footer>
+</article>
+	
+
+
+<div id="pagination">
+
+	<span class="hide">|</span> 
+
+	<a href="http://foodsense.is/blog/show/category/monologues/P8" class="button older">Older Entries &raquo;</a>
+
+</div>
+
+</section><!-- /#main -->
+
+<aside role="sub">
+
+	<div class="rss"><a href="http://feeds.feedburner.com/foodsense-blog">Subscribe via RSS</a> <a href="http://foodsense.is/rss" title="RSS?">?</a></div>
+	
+	<h4 class="clear">Categories</h4>
+	<ul id="nav_categories" class="nav_categories">
+	<li>
+	<a href="http://foodsense.is/blog/show/category/cook">Cook</a>
+	</li>
+	<li>
+	<a href="http://foodsense.is/blog/show/category/dine">Dine</a>
+	</li>
+	<li>
+	<a href="http://foodsense.is/blog/show/category/events">Events</a>
+	</li>
+	<li>
+	<a href="http://foodsense.is/blog/show/category/know">Know</a>
+	</li>
+	<li>
+	<a href="http://foodsense.is/blog/show/category/monologues">Monologues</a>
+	</li>
+	<li>
+	<a href="http://foodsense.is/blog/show/category/my-veg-life">My Veg Life</a>
+	</li>
+	<li>
+	<a href="http://foodsense.is/blog/show/category/read">Read</a>
+	</li>
+	<li>
+	<a href="http://foodsense.is/blog/show/category/shop">Shop</a>
+	</li>
+	<li>
+	<a href="http://foodsense.is/blog/show/category/ten-things">Ten Things</a>
+	</li>
+</ul>
+
+	
+	<div class="search">
+<form method="post" action="http://foodsense.is/"  >
+<div class='hiddenFields'>
+<input type="hidden" name="ACT" value="2" />
+<input type="hidden" name="XID" value="72324501ac707e1c4d04b026a29edebcba4d02fe" />
+<input type="hidden" name="RES" value="" />
+<input type="hidden" name="meta" value="jec6YFsZsEvGcQX6UhAJUir6IAa0dT1jTsjJQc/irYiVQ5/Jt5UGLwO+jGZ6YhALFwA7xJTUXVzSHhg7rfld4KSZnyozhoMFC82qw5uQ/XAZdKaWjbOMXhV+hOvvodCwJmBqByhCp9ByRUGDvFFIPh7ryzBv+neCFiZc+/DxzkvIdmps19Zv/3SxgqVnr+hORj9mmbpsv3UPKEkQZcrMWyhOhrV1KFGSSilD7i/9+zuCAfK8A3YmYqcHKDiElnMW48vaEStKL6M9aa/Ad13t0myjn0MK4LjtcOTzTON+J2alU+UPeY4DR475Bhk3DL7jXmu55HpFT0LMO3yFK4JuXEzwGoeKLm6cddcuYltWouZyGM/JWtClXBnHen/Z4/c6" />
+<input type="hidden" name="site_id" value="1" />
+</div>
+
+
+	<form action="/">
+		<fieldset>
+			<label for="search" class="hide">Search</label>
+			<input type="search" class="text" name="keywords" id="keywords" placeholder="Search" />
+		</fieldset>
+		<fieldset class="submit">
+			<input type="submit" value="Go" />
+		</fieldset>
+	</form>
+</form>
+</div>
+	
+	<h4>Archives</h4>
+	<ul>
+	<li><a href="http://foodsense.is/blog/archives/2012/02">February 2012</a></li>
+<li><a href="http://foodsense.is/blog/archives/2012/01">January 2012</a></li>
+<li><a href="http://foodsense.is/blog/archives/2011/12">December 2011</a></li>
+<li><a href="http://foodsense.is/blog/archives/2011/11">November 2011</a></li>
+<li><a href="http://foodsense.is/blog/archives/2011/10">October 2011</a></li>
+<li><a href="http://foodsense.is/blog/archives/2011/09">September 2011</a></li>
+<li><a href="http://foodsense.is/blog/archives/2011/08">August 2011</a></li>
+<li><a href="http://foodsense.is/blog/archives/2011/07">July 2011</a></li>
+<li><a href="http://foodsense.is/blog/archives/2011/06">June 2011</a></li>
+<li><a href="http://foodsense.is/blog/archives/2011/05">May 2011</a></li>
+
+	</ul>
+	
+	
+<h4>Food Sense Weekly Newsletter</h4>
+<p>
+	Sign up for our newsletter to receive a handpicked selection of the best stories, recipes, and news, delivered weekly to your inbox.</p>
+
+
+<form action="http://thevegpost.us2.list-manage1.com/subscribe/post?u=be2c472e2e43f8735d9666407&amp;id=83098190d4" method="post" class="newsletter" name="mc-embedded-subscribe-form">
+	<fieldset>
+		<label for="email" class="hide">Email</label>
+		<input type="email" id="email" name="EMAIL" placeholder="Email" />
+	</fieldset>
+	<fieldset class="submit">
+		<input type="submit" value="Subscribe" name="subscribe" />
+	</fieldset>
+</form>
+
+</aside>
+
+</div><!-- END #content -->
+
+<aside role="social">
+	<section class="twitter"> 
+		<h1>Latest Tweet</h1>
+		
+		<p class="tweet">"because it's a great week for red velvet cupcakes, via <a title='The Tolerant Vegan' href='http://twitter.com/tolerantvegan'>@tolerantvegan</a>: <a title='http://ow.ly/92eyx' href='http://t.co/BljaqozN'>http://t.co/BljaqozN</a>"</p>
+		
+		<p><a href="http://twitter.com/getfoodsense" class="button">Join the Conversation</a></p>
+	</section> 
+	<section class="facebook">
+		<h1>Let's be friends!</h1>
+		<p>For weekly finds, community recommendations, and more, like us on Facebook.</p>
+		<p><a href="http://www.facebook.com/getfoodsense" class="button">Join the Community</a></p>
+	</div>
+</aside><!-- /aside -->
+
+<footer role="siteinfo">
+	<p><a href="http://foodsense.is/legal">Privacy Policy</a> | <a href="http://foodsense.is/legal#terms">Terms of Use</a> | <span id='eeEncEmail_cFDqsUNmqd'>.(JavaScript must be enabled to view this email address)</span><script type="text/javascript">/*<![CDATA[*/var l=new Array();var output = '';l[0]='>';l[1]='a';l[2]='/';l[3]='<';l[4]=' 116';l[5]=' 99';l[6]=' 97';l[7]=' 116';l[8]=' 110';l[9]=' 111';l[10]=' 67';l[11]='>';l[12]='\"';l[13]=' 115';l[14]=' 105';l[15]=' 46';l[16]=' 101';l[17]=' 115';l[18]=' 110';l[19]=' 101';l[20]=' 115';l[21]=' 100';l[22]=' 111';l[23]=' 111';l[24]=' 102';l[25]=' 64';l[26]=' 111';l[27]=' 108';l[28]=' 108';l[29]=' 101';l[30]=' 104';l[31]=':';l[32]='o';l[33]='t';l[34]='l';l[35]='i';l[36]='a';l[37]='m';l[38]='\"';l[39]='=';l[40]='f';l[41]='e';l[42]='r';l[43]='h';l[44]='a ';l[45]='<';for (var i = l.length-1; i >= 0; i=i-1){ if (l[i].substring(0, 1) == ' ') output += "&#"+unescape(l[i].substring(1))+";"; else output += unescape(l[i]);}document.getElementById('eeEncEmail_cFDqsUNmqd').innerHTML = output;/*]]>*/</script><br />&copy; 2012 Food Sense, all rights reserved.</p>
+	<div class="social">
+		<ul>
+			<li class="twitter"><a href="http://twitter.com/getfoodsense">Twitter</a></li>
+			<li class="facebook"><a href="http://www.facebook.com/getfoodsense">Facebook</a></li>
+			<li class="rss"><a href="http://foodsense.is/rss">Subscribe via RSS</a></li>
+		</ul>
+	</div>
+</footer>
+
+</div><!-- /#wrap -->
+
+
+<!-- ANALYTICS -->
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-23993951-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<!-- DISQUS COMMENT COUNT -->
+<script type="text/javascript">
+    var disqus_shortname = 'foodsense'; 
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+		
+</body>
+	
+</html>
