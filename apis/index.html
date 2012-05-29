@@ -301,6 +301,22 @@
   </script>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<!--                    PROXIMITY                   -->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+      <div class="wrapper">
+        <p id="proximity" style="font-size: 30px">Far…</p>
+        <script>
+          window.addEventListener("userproximity", function(a) {
+            var d = document.querySelector("#proximity");
+            if (a.near) d.innerHTML = "Near!"
+            else d.innerHTML = "Far…"
+          }, true);
+        </script>
+      </div>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <!--                      GPS                       -->
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
