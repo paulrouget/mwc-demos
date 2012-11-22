@@ -398,11 +398,11 @@
           if (interval) { clearInterval(interval); interval = null; return; }
           function tick() {
             setTime(++time);
-            navigator.mozVibrate(50);
+            navigator.vibrate(50);
             if (time == 12) {
               time = 4; clearInterval(interval); interval = null;
               if (notification) notification.show();
-              navigator.mozVibrate(500);
+              navigator.vibrate(500);
               setTimeout(function() { setTime(time); }, 4000);
             }
           }
@@ -450,7 +450,7 @@
       </div>
 
       <script>
-        if (navigator.mozVibrate) document.body.classList.add("vibration");
+        if (navigator.vibrate) document.body.classList.add("vibration");
         var timeout;
         function clear() {
           var c = $("#vibration .checked");
@@ -458,14 +458,14 @@
           if (timeout) {
             clearTimeout(timeout);
             timeout = null;
-            navigator.mozVibrate(0);
+            navigator.vibrate(0);
           }
         }
         function vibrate(div) {
           var val = div.getAttribute("val");
           clear();
           div.classList.add("checked");
-          navigator.mozVibrate(val);
+          navigator.vibrate(val);
           timeout = setTimeout(clear, val);
         }
         $("#vibration").addEventListener("click", function(e) {
