@@ -274,7 +274,7 @@
   <script>
     initBattery();
     function initBattery() {
-      var b = navigator.mozBattery;
+      var b = navigator.battery;
       if (b === null || b === undefined) { return; }
       document.body.classList.add("battery");
       b.addEventListener("chargingchange", updateBattery);
@@ -282,7 +282,7 @@
       updateBattery();
     }
     function updateBattery() {
-      var b = navigator.mozBattery;
+      var b = navigator.battery;
       if (!b) { console.log("Battery: Unexpected error!"); return; }
       var s = $("#battery .status");
       s.textContent = b.charging ? "Battery Charging" : "Battery Discharging";
