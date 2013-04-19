@@ -397,8 +397,8 @@
         $("#watch").onclick = function() {
           if (notification) {
             setTimeout(function() {
-              setTime(12);
-              if (interval) { clearInterval(interval); interval = null; return; }
+              if (interval) { clearInterval(interval); interval = null }
+              setTime(0);
               notification.show();
             }, 7000);
           }
