@@ -491,23 +491,17 @@
 <!--                   CAMERA PREVIEW               -->
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-      <div id="oldyou" class="wrapper">
+      <div class="wrapper">
         <video id="webcam" width="100%"></video>
       </div>
 
       <script>
-        var v = $("#webcam");
         function webcam(stream) {
-          v.src=window.URL.createObjectURL(stream);
-          v.play()
+          $("#webcam").src=window.URL.createObjectURL(stream);
+          $("#webcam").play()
         }
         navigator.mozGetUserMedia({video:true}, webcam, function(){});
       </script>
-
-
-      <style>
-      </style>
-
 
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
