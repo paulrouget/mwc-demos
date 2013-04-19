@@ -10,7 +10,7 @@
 <div id="demos">
 
   <style>
-    * {-moz-box-sizing:border-box;margin:0;padding:0}
+    * {-moz-box-sizing:border-box;margin:0;padding:0;box-sizing:border-box;}
     #demos { font-size: 0; }
     header {
       font-size: 25px;
@@ -395,13 +395,17 @@
         setTime(time);
         var interval;
         $("#watch").onclick = function() {
+          if (notification) {
+            setTimeout(function() {
+              notification.show();
+            }, 6000);
+          }
           if (interval) { clearInterval(interval); interval = null; return; }
           function tick() {
             setTime(++time);
             navigator.vibrate(50);
             if (time == 12) {
               time = 4; clearInterval(interval); interval = null;
-              if (notification) notification.show();
               navigator.vibrate(500);
               setTimeout(function() { setTime(time); }, 4000);
             }
